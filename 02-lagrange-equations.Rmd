@@ -1,0 +1,439 @@
+# Lagrange's Equations
+
+In this section we develop two perspectives on Lagrange's equations: 
+
+1. A "covariant" formulation of Newton Cartesian equations. 
+2. Equation of the trajectory satisfying the principle of least action. 
+
+Both perspectives are extremely important to the 
+development of modern theoretical physics. 
+
+## Covariant formulation {-}
+
+### Covariance: introduction {-}
+What do we mean by something covariant? 
+
+Consider a function $f:\R^2\to \R$ defined on the 2D plane according to 
+\[ 
+    f_1(x, y) = x^2+y^2 
+\] 
+This function is, in a sense, "equivalent" to the definition 
+\[ 
+    f_2(r, \theta) = r^2 
+\] 
+Although $f_1, f_2$ are defined on different domains, 
+they represent the same function $f$ defined on the $2D$ plane: 
+the choice of $(x, y)$ versus $(r, \theta)$ are simply different 
+choices of "charts" to represent the same underlying 
+geometric object (manifold). When we specify $f(r, \theta)=r^2$ and 
+understand $(r, \theta)$ as a chart for $\R^2$, 
+we have equivalently defined $f(x, y)=x^2+y^2$. 
+In this sense, $f$ is _covariant_. 
+
+::: {.remark}
+Covariant objects are, in a sense, analogous to "platonic ideas." 
+Another prime example of a covariant object is an abstract linear 
+transformation (e.g. rotation): in this case the matrix representations 
+are obtained after fixing a chart (basis). 
+:::
+
+::: {.remark}
+If you want to dig deeper, study differential geometry!
+:::
+
+### Euler-Lagrange Equations {-}
+Let $(q_j)=\{q_1, \cdots, q_N\}$ denote the degrees of freedom. 
+A trajectory's "snapshot" at a single time is completely 
+captured by $((q_j), (\dot q_j))$. A Lagrangian is a scalar 
+(function) which looks at such snapshots and evaluates to a number. 
+
+:::{.definition #lagrangian name="Lagrangian"}
+The Lagrangian of a physical system is a map of type 
+\[  
+    \mca L: \R^n\times \R^n \times \R\to \R 
+\] 
+Its arguments are abbreviated $\mca L(q, \dot q, t)$ but expands to 
+\[ 
+    \mca L(q_1, \cdots, q_n, \dot q_1, \cdots, \dot q_n, t)
+\] 
+:::
+To be precise, the Lagrangian is a function on the _tangent bundle_ $TM$
+of the configuration manifold $TM$. 
+
+:::{.definition #eulerLagrange name="Euler-Lagrange Equations"}
+According to the EL-equations, a trajectory $q(t)$ is physical if 
+\[ 
+    0 = \mbb L_q(t) = (d_t \nabla_{\dot q} - \nabla_q)\mca L(q, \dot q, t) \in \R^n 
+\] 
+for all $t$. The notation above unpacks to $\forall j=1, \cdots, n$. 
+\[ 
+    d_t (\pd {\dot q_j} \mca L) = \pd {q_j} \mca L
+\] 
+the time-dependent Euler-Lagrange vector $\mbb L_q$ 
+captures the deviation from $0$; 
+we use the subscript to denote explicit dependence on the coordinates $q$. 
+:::
+In Cartesian coordinates, define the Newtonian Lagrangian to be 
+\[ 
+    \mca L(x, \dot x, t) = T - V = \df m 2 \dot q^2 - V(q, t) 
+\] 
+Then Lagrange's equations (definition \@ref(def:eulerLagrange)) 
+simplify exactly to Newton's equations. 
+\[ 
+    m\ddot x = \nabla_x V
+    (\#eq:NewtonEquations)
+\] 
+
+### Covariance of Euler-Lagrange Equations {-}
+The following theorem establishes that the following statements are equivalent: 
+
+1. Newton's equations \@ref(eq:NewtonEquations) are true in Cartesian 
+coordinates
+2. Lagrange's equations are true in arbitrary invertible coordinates. 
+
+
+:::{.theorem #covarianceEL name="Covariance of Euler-Lagrange equations"}
+Given a coordinate transform $x\to q$, the EL-vector transforms covariantly 
+according to 
+\[ 
+    \mbb L_q(t) = J_{q\to x} \mbb L_x(t) 
+\] 
+:::
+
+To prove this, we need to establish several lemmas. 
+We begin by looking at how the change of coordinates $q\to x$ 
+determines $(q, \dot q)\to (x, \dot x)$. 
+
+:::{.lemma #dotCancellation name="dot cancellation"}
+$J_{\dot q\to \dot x} = J_{q\to x}$. 
+:::
+_Proof:_ Follows from chain rule: 
+\begin{align}
+    \dot x_j 
+    &= d_t x_j(q_1, \cdots, q_j) 
+    = (\pd {q_k} x_j) \dot q_k \implies 
+    \dot x = J_{q\to x} \dot q
+\end{align}
+Now, $J_{q\to x}$ is independent of $\dot q$, so 
+$J_{\dot q\to \dot x} = J_{q\to x}$. 
+
+:::{.lemma #absorbDer}
+$J_{q\to \dot x} = d_t J_{q\to x}$ 
+:::
+_Proof:_ 
+On the LHS, $\pd {q_i} \dot x_j = \pd {q_i} (\dot q_k \pd {q_k} x_j)
+= \dot q_k (\pd {q_iq_k}^2 x_j)$. 
+On the RHS, $(d_t J_{q\to x}(q_1, \cdots, q_n))_{ij} = (\pd {q_i q_k}^2 x_j) \dot q_k$. 
+
+The next two lemmas essentially restate the chain rule for $q(x)$ 
+and $\dot q(x, \dot x)$. 
+
+:::{.lemma #gradient1}
+$\nabla_{\dot x} = J_{\dot q\to \dot x} \nabla_{\dot q}$. 
+:::
+
+:::{.lemma #gradient2}
+$\nabla_x = J_{\dot q\to x} \nabla_q + J_{q\to x}\nabla_x$. 
+:::
+
+We are now ready to prove theorem \@ref(thm:covarianceEL)
+by expanding the operator $d_t\nabla_{\dot x} - \nabla_x$: 
+\begin{align}
+    d_t \nabla_{\dot x} - \nabla_x 
+    &= d_t (J_{\dot q\to \dot x} \nabla_{\dot q}) 
+    - J_{q\to x}\nabla_q - J_{x\to \dot q}\nabla_{\dot q} \\ 
+    &= (d_t J_{\dot q\to \dot x})\nabla_{\dot q} 
+    + J_{\dot q\to \dot x} d_t\nabla_{\dot q}
+    - J_{q\to x}\nabla_q - J_{q\to \dot x}\nabla_{\dot q} \\ 
+    &= (d_tJ_{x\to q})\nabla_{\dot q} 
+    + J_{q\to x} d_t\nabla_{\dot q}
+    - J_{q\to x}\nabla_q - J_{q\to \dot x}\nabla_{\dot q} \\ 
+    &= J_{q\to \dot x}\nabla_{\dot q} 
+    + J_{q\to x} d_t\nabla_{\dot q}
+    - J_{q\to x}\nabla_q - J_{q\to \dot x}\nabla_{\dot q} \\ 
+    &= J_{q\to x} d_t\nabla_{\dot q}
+    - J_{q\to x}\nabla_q \\ 
+    &= J_{q\to x}(d_t \nabla_{\dot q} - \nabla_q)
+\end{align}
+We applied lemmas \@ref(lem:gradient1) and \@ref(lem:gradient2) on line $1$, 
+applied the product rule to $J_{\dot x\to \dot q}\nabla_{\dot q}$ to obtain line $2$
+line $2$, then cancelled the dots by lemma \@ref(lem:dotCancellation) 
+to obtain line $3$. Finally, we applied lemma \@ref(lem:absorbDer) to 
+line $3$, cancelled terms, and regrouped. 
+
+
+### Constraints {-}
+Sometimes it is convenient to consider an over-parameterized 
+change of coordinates $x\to q$. In this case, 
+$J_{q\to x}$ is "lean and tall", while $J_{x\to q}$ "short and wide." 
+Recall the covariant formula 
+\begin{align}
+    \mbb L_x &= J_{x\to q} \mbb L_q 
+\end{align}
+When $J_{x\to q}$ is full rank, the physicality condition 
+\[ 
+    \mbb L_x = 0 \iff \mbb L_q=0 
+\] 
+When $q$ is overparameterized, however, requiring 
+$\mbb L_q=0$ is too strong: the correct condition is 
+\[ 
+    \mbb L_x = 0 \iff \mbb L_q\in \ker J_{x\to q}
+\] 
+
+Consider a single constraint enforced by some constraint function $f(q)=0$ of signature 
+$f:\R^n\to \R$. 
+
+:::{.proposition}
+Given a constraint $f:\R^N\to \R$ and a trajectory $q(t)$, 
+if $f(q(t))=0$ for all points on the trajectory, then 
+\[ 
+    \nabla f \in \ker J_{x\to q}
+\] 
+To be precise, the gradient $(\nabla f)(q(t))$ evaluated 
+at all points $q(t)$ for all $t$ is in the kernel of $J_{x\to q}(q(t))$ 
+evaluated at $q(t)$. 
+:::
+_Proof:_ Recognizing the chain rule: 
+$J_{x\to q} \nabla\big|_q f = J_{x\to f}=0$ since $f$ is constant. 
+
+:::{.definition name="complete, independent constraints"}
+Given an over-parameterized system with configuration in $\R^{m>n}$, where 
+there are only $n$ true degrees of freedom, a set 
+of constraints $\{f_j:\R^m\to \R\}_{j=1}^k$ is independent 
+if for all possible configurations $q\in \R^m$, the set of vectors 
+\[ 
+    C(q) = \{\nabla f_j\big|_q\}_{j=1}^k 
+\] 
+are linearly independent. They are complete if $C(q)$ spans $\ker J_{x\to q}(q)$ 
+for all points $q$. 
+:::
+All of this is a fancy way of saying that $f$ is complete and independent 
+iff they provide necessary and sufficient information to discern physicality 
+$\mbb L_q\in \ker J_{x\to q}$. Given these constraints, $\mbb L_x=0$ iff 
+\begin{align}
+    \mbb L_q(q, \dot q) &= \sum_j \lambda_j \nabla_q f_j(q) \in \ker J_{x\to q}, 
+        \quad \lambda_j \in \R  \\ 
+    f_j(q) &= 0 
+\end{align}
+This constrained problem can be solved by the 
+standard Lagrange multiplier method. 
+
+
+## Extremization formulation {-}
+In this subsection, we show that the Euler-Lagrange 
+equations are fulfilled if and only if a certain action functional 
+is extremized. This yields a powerful variational perspective on 
+physicality. 
+
+:::{.definition #actionFunctional name="action functional"}
+Given a Lagrangian $\mca L(q, \dot q, t) (definition \@ref(def:lagrangian)), 
+its associated action functional $\mca S_{[a, b]}(p)$ takes in $3$ arguments: 
+
+1. Begining time $a\in \R$. 
+2. End time $b\in \R$. 
+3. A path $q:[a, b]\to \R^n$. 
+
+and outputs the scalar 
+\[ 
+    \mca S_{[a, b]}(p) = \int_a^b \mca L(q(t), \dot q(t), t)\, dt 
+\] 
+:::
+
+To properly define extremization, we need the directional derivative. 
+Fixing $a, b$, the directional derivative $(D_\eta \mca S_{[a, b]})(q)$ 
+tells us how much $\mca S(q)$ changes if we nudge $q$ in the direction of 
+$\eta$ infinitesimally. 
+
+:::{.definition name="directional derivative of action"}
+Fixing $a, b$, the directional derivative 
+$(D_\eta \mca S_{[a, b]})(q)$ takes in two arguments: 
+
+1. The perturbing path $\eta: [a, b]\to \R^n$. 
+2. The path at which the perturbation is evaluated $q:[a, b]\to \R^n$. 
+
+and outputs the scalar slope of $\mca S_{[a, b]}(q+\epsilon \eta)$ w.r.t $\epsilon$, 
+evaluated at $0$: 
+\[ 
+    (D_\eta \mca S_{[a, b]})(q) = \lim_{\epsilon \to 0} 
+    \df{\mca S_{[a, b]}(q) + \mca S_{[a, b]}(q+\epsilon \eta)}{\epsilon}
+\] 
+To reduce notation clutter, we abbreviate this as 
+\[ 
+    D_\eta S(q) = d_\epsilon \big|_0 S(q+\epsilon \eta) 
+\] 
+:::
+
+The magic in the air is that the Euler-Lagrange vector 
+(definition \@ref(def:eulerLagrange)) $\mbb L_q$ 
+gives us the directional derivative when the input perturbation 
+is endpoint-preserving. 
+
+:::{.theorem name="endpoint-preserving derivative"}
+For endpoint-preserving $\eta:[a, b]\to \R$ such that 
+$\eta(a)=\eta(b)=0$, the directional derivative of $\mca S$ is given by 
+\[ 
+    (D_\eta \mca S)(q) = -\int_a^b \mbb L_q(t) \eta(t)\, dt 
+\] 
+:::
+_Proof:_ Fixing $q, \eta$, for any $\epsilon>0$ let 
+$q_\epsilon:[a, b]\to \R^n$ denote the family of paths given by 
+\[ 
+    q_\epsilon(t) = q(t) + \epsilon \eta(t)
+    (\#eq:pathFamily)
+\] 
+Slide $d_\epsilon$ into the integral and apply lemma 
+\@ref(lem:calcVariation), then apply the endpoint-vanishing condition 
+\begin{align}
+    (D_\eta \mca S)(q)
+    &= d_\epsilon \big|_{\epsilon=0} \mca S(q+\epsilon \eta) 
+    = \int_a^b d_\epsilon \mca L(q_\epsilon, \dot q_\epsilon, t)\, dt \\ 
+    &= \int_a^b \left[
+        -\eta \cdot \mbb L_q + d_t \left(\eta \cdot \nabla_{\dot q}\mca L\right)
+    \right]\, dt \\ 
+    &= \left(\eta \cdot \nabla_{\dot q}\mca L\right)\big|^b_a 
+    -\int_a^b \eta \cdot \mbb L_q\, dt 
+    = -\int_a^b \eta \cdot \mbb L_q\, dt
+\end{align}
+
+The following lemma is the key component in the calculus 
+of variations. Make sure it is read carefully. 
+
+:::{.lemma #calcVariation name="ε-derivative of the perturbed Lagrangian"}
+With $q_\epsilon=q + \epsilon \eta$ given in \@ref(eq:pathFamily) 
+\[ 
+    d_\epsilon \mca L(q_\epsilon, \dot q_\epsilon) 
+    = -\eta \cdot \mbb L_q + d_t \left(\eta \cdot \nabla_{\dot q}\mca L\right)
+\] 
+:::
+_Proof:_ Using the dependence 
+$\epsilon \to (q_\epsilon, \dot q_\epsilon) \to \mca L$, apply the chain rule 
+\begin{align}
+    d_\epsilon \mca L(q_\epsilon, \dot q_\epsilon) 
+    &= (d_\epsilon q_\epsilon) \cdot (\nabla_q \mca L) + 
+    (d_\epsilon \dot q_\epsilon) \cdot (\nabla_{\dot q} \mca L) \\ 
+    &= \eta \cdot \nabla_q \mca L + d_t \eta \cdot \nabla_{\dot q} \mca L \\ 
+    &= \eta \cdot \nabla_q \mca L 
+    + d_t \left(\eta \cdot \nabla_{\dot q}\mca L \right) 
+    - \eta \cdot d_t \nabla_{\dot q}\mca L \\ 
+    &= \eta \cdot (\nabla_q - d_t \nabla_{\dot q})\mca L     
+    + d_t \left(\eta \cdot \nabla_{\dot q} \mca L\right)\\ 
+    &= -\eta \cdot \mbb L_q + d_t 
+    \left(\eta \cdot \nabla_{\dot q}\mca L\right)
+\end{align}
+On the second line, we used integration by parts on the time-derivative 
+to transfer the time-derivative on $\eta$ (which we don't like) 
+to $\nabla_{\dot q}\mca L$ (which we like, since it appears in $\mbb L_q$. 
+
+It is a standard result in real analysis (fundamental lemma of the 
+calculus of variations) that for 
+\[ 
+    (D_\eta \mca S)(q) = -\int_a^b \mbb L_q(t) \eta(t)\, dt 
+\] 
+to be $0$ for all reasonable endpoint-preserving perturbations $\eta$ 
+(which includes, in particular, compactly supported smoth functions), 
+$\mbb L_q(t)$ must be $0$. This allows us to prove another 
+equivalence result. 
+
+:::{.theorem name="Hamilton's principle"}
+Recall that, given a Lagrangian $\mca L(q, \dot q, \epsilon)$, 
+we call a path $q:[a, b]\to \R^n$ physical iff 
+\[ 
+    \mbb L_q(t)=0, \quad t\in [a, b], \quad 
+    \mbb L_q(t) = (d_t \nabla_{\dot q} - \nabla_q) \mca L(q(t), \dot q(t), t)
+\] 
+Then a path $q$ is physical iff it extremizes the action functional 
+at $\mca S_{[a, b]}(q)$ (definition \@ref(def:actionFunctional)) 
+w.r.t all endpoint-preserving perturbations 
+$\eta:[a, b]\to \R^n, \eta(a)=\eta(b)=0$ 
+\[ 
+    (D_\eta \mca S)(q) = 0
+\] 
+:::
+
+## Separability of quadratic Lagrangians {-}
+
+The following result is also used in the 
+path integral formulation of quantum mechanics. 
+
+:::{.proposition name="Actions of quadratic Lagrangians are separable about 
+the classical trajectory"}
+Given a quadratic Lagrangian 
+\[ 
+    \mca L(q, \dot q) = u\, \dot q^2 + v\, q^2
+\] 
+for path $q$ wich satisfies the Euler-Lagrange equations, 
+the Lagrangian satisfies 
+\[ 
+    \mca L(q+\eta, \dot q + \dot \eta) 
+    = \mca L(q, \dot q) + \mca L(\eta, \dot \eta)
+    = \mca L(q, \dot q) + \epsilon \mca L(\eta, \dot \eta) + 
+    d_t \left[\eta \cdot \nabla_{\dot q}\mca L(q, \dot q)\right]
+\] 
+In particular, if the perturbation $\eta:[a, b]\to \R^n$ 
+is additionally endpoint preserving so $\eta(a)=\eta(b)=0$, then 
+\[ 
+    \mca S(q+\eta) = \mca S(q)+\mca S(\eta)
+\] 
+:::
+_Proof:_ Consider the function in $\epsilon:\R\to \R$ defined by 
+\begin{align} 
+    \mca L(\epsilon) 
+    &= \mca L(q + \epsilon \eta, \dot q + \epsilon \dot \eta)
+    = u (\dot q + \epsilon \dot \eta)^2 + v(q + \epsilon \eta)^2 \\ 
+\end{align}
+It helps at this point to compute some of its derivatives 
+\begin{align}
+    \eta \cdot \nabla_q \mca L 
+    &=  \eta \cdot 2v\epsilon (q + \epsilon \eta), \quad 
+    \eta \cdot \nabla_{\dot q} \mca L 
+    =  \dot \eta \cdot 2u\epsilon (\dot q + \epsilon \dot \eta) \\ 
+    \df 1 2 (\eta \cdot \nabla_q)^2 \mca L 
+    &= (\eta \cdot \nabla_q)\left[
+        \eta \cdot 2v\epsilon (q + \epsilon \eta)
+    \right]
+    = \epsilon v \, \eta^2 \\ 
+    \df 1 2 (\eta \cdot \nabla_{\dot q})^2 \mca L 
+    &= (\dot \eta \cdot \nabla_{\dot q}) 
+    \left[\dot \eta \cdot 2u\epsilon (\dot q + \epsilon \dot \eta) \right]
+    = \epsilon u \, \dot \eta^2 \\ 
+    [(\nabla \cdot \nabla_q)(\dot \eta \cdot \nabla_{\dot q})] \mca L 
+    &= [(\dot \eta \cdot \nabla_{\dot q})(\nabla \cdot \nabla_q)] \mca L = 0 \\ 
+    \df 1 2 (\eta \cdot \nabla_q + \dot \eta \cdot \nabla_{\dot q})^2 \mca L(\epsilon)
+    &= \epsilon \mca L(\eta, \dot \eta)
+\end{align}
+Taylor expanding about $\epsilon=0$ yields 
+\begin{align}
+    \mca L(q + \epsilon \eta, \dot q + \epsilon \dot \eta)
+    &= \mca L(q, \dot q) 
+        + \sum_{k=1}^\infty 
+            \df {
+                (\eta \cdot \nabla_q + \dot \eta \cdot \nabla_{\dot q})^k 
+            } {k!} 
+        \mca L(q + \epsilon \eta, \dot q + \epsilon \dot \eta) \\ 
+    &= \mca L(0) 
+    + (\eta \cdot \nabla_q + \dot \eta \cdot \nabla_{\dot q}) \mca L
+    + \df 1 2 (\eta \cdot \nabla_q + \dot \eta \cdot \nabla_{\dot q})^2 \mca L \\ 
+    &= \mca L(q, \dot q) + \epsilon \mca L(\eta, \dot \eta) 
+    + (\eta \cdot \nabla_q + \dot \eta \cdot \nabla_{\dot q}) \mca L
+    (\#eq:separationEquation)
+\end{align}
+We will now show that the extra last term (which came from the linear expansion)
+is zero when $\eta$ is time-dependent. We do this by using the product 
+rule and the condition that at $\epsilon=0$, the path satisfies the Euler-Lagrange equation 
+\begin{align} 
+    (\eta \cdot \nabla_q + \dot \eta \cdot \nabla_{\dot q})\mca L
+    &= [\eta \cdot \nabla_q + d_t(\eta \cdot \nabla_{\dot q}) - 
+    \eta \cdot d_t \nabla_{\dot q}] \mca L \\ 
+    &= d_t(\eta \cdot \nabla_{\dot q})\mca L
+\end{align}
+Where we recognized 
+$\eta \cdot \nabla_q - \eta \cdot (d_t\nabla_{\dot q})\mca L
+= -\eta \cdot \mbb L = 0$. Substituting back into equation \@ref(eq:separationEquation) 
+\[ 
+    \mca L(q + \epsilon \eta, \dot q + \epsilon \dot \eta)
+    = \mca L(q, \dot q) + \epsilon \mca L(\eta, \dot \eta) + 
+    d_t \left[\eta \cdot \nabla_{\dot q}\mca L(q, \dot q)\right]
+\] 
+Substitute $\epsilon=1$ and integrate to obtain the action. 
+The last total-derivative term vanishes by endpoint-preserving 
+property of $\eta$. 

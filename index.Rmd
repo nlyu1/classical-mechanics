@@ -1,0 +1,70 @@
+---
+title: "Physics 151 Section Notes"
+author: "Nicholas Lyu, Arthur Jaffe"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [refs.bib]
+biblio-style: "numeric"
+split_bib: yes
+link-citations: true
+---
+
+\usepackage{cancel}
+\usepackage{amsmath}
+\usepackage{bm}
+\newcommand{\pd}[1]{\partial_{#1}}
+
+\newcommand{\mbb}{\mathbb}
+\newcommand{\mbf}{\mathbf}
+\newcommand{\mb}{\boldsymbol}
+\newcommand{\mrm}{\mathrm}
+\newcommand{\mca}{\mathcal}
+\newcommand{\mfk}{\mathfrak}
+\newcommand{\tr}{\mrm{tr}} 
+\newcommand{\df}{\dfrac}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+\newcommand{\dag}{\dagger}
+
+\newcommand{\Cl}{\mca C}
+\newcommand{\Gr}{\mca G}
+\newcommand{\Pf}{\mrm{Pf}}
+\newcommand{\Pa}{\mca P}
+\newcommand{\R}{\mbb R}
+
+\newcommand{\poly}{\mrm{poly}}
+
+
+
+# Preface {-}
+These notes accompany the Fall 2024 
+iteration of Arthur Jaffe's _Mechanics_ course at 
+Harvard (Physics, 151). 
+
+
+## Introduction to the course {-}
+
+For those who learn math, at some point 
+(late into high school or in college) there is a 
+change of perspective from _computation_ to _proof_-based math. 
+One stops viewing matrices as large blobs of numbers but 
+as coordinate representations of abstract linear transformations. 
+
+There is a similar shift in perspective in physics, when
+the emphasis changes from solving equations of motion to 
+understanding the fundamental reasons they're there in 
+the first place. Key to navigating this change is understanding 
+the role of ''symmetry and conservation laws.'' 
+
+This course does not discuss quantum theory 
+(maybe at the end, time permitting), but the 
+classical treatment of symmetry and conservation 
+will help motivate much of quantum theory's constructions. 
+
+
+## Using these notes {-}
+These notes summarize and, occasionally, 
+supplement Prof. Jaffe's lecture notes on canvas. 
+They are meant as a concise reminder of the main 
+results in lecture. 

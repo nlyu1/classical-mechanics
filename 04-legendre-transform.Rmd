@@ -1,0 +1,162 @@
+# Hamiltonian Mechanics 
+
+We begin by enumerating three properties of the Legendre 
+transform, which relates (convex) Lagrangians and Hamiltonians. 
+
+Key takeaways of this part are: 
+
+1. Fixing $q$, the quantities $\dot q$ and $p$ are functions 
+of each other, related by the equation $\nabla_{\dot q} \mca L = p$. 
+2. 
+
+## Legendre transform {-}
+
+The Legendre transform is a general transform one can do 
+to convex functions. 
+
+:::{.definition name="Legendre transform"}
+Given a function $f:\R^n\to \R$, its Legendre transform 
+$\mbb L f: \R^n\to \R$ is 
+\[ 
+    (\mbb L f)(p) = \sup_x \, \la x, p\ra - f(x)
+\] 
+:::
+
+Assuming $f$ well-behaved, the extremality condition is 
+\[ 
+    \nabla_x \la x, p\ra - f(x) 
+    = p - \nabla_x f(x) = 0 \iff p = \nabla_x f 
+\] 
+
+When $f$ is convex, $(\mbb L f)(p)$ encodes the same 
+information with argument $\nabla_x f$, and the $\sup$ 
+may be dropped: 
+\[ 
+    (\mbb L f)(p=\nabla_x f) = x\cdot p - f(x)
+\] 
+As such, the Legendre transform interacts nicely with 
+convex functions, since the gradient map is invertible:
+
+:::{.proposition}
+The gradient map $x\mapsto (\nabla f)(x)$ is invertible 
+if $f$ is strictly convex. 
+:::
+_Proof:_ For $x\neq y$, strict convexity implies 
+\begin{align}
+    \nabla f(x) \cdot (y-x) < f(y) - f(x), \quad 
+    \nabla f(y) \cdot (x-y) < f(x) - f(y)
+\end{align}
+Suppose for contradiction that $\nabla f(x) = \nabla f(y)$, 
+substituting $\nabla f(y)=\nabla f(x)$ in the last equation and 
+multiplying both sides by $-1$ yields the contradiction 
+\[ 
+    \nabla f(x) (y-x) > f(y) - f(x)
+\] 
+
+:::{.proposition name="Jacobian of Legendre transform"}
+The Jacobian of the Legendre transform $x\to p$ is the Hessian of $f$ 
+\[ 
+    J_{x\to p} = d_x p = d_x \left(\nabla_x f\right) = \mca H_x f 
+\] 
+:::
+
+:::{.proposition name="convexity invariance"}
+Suppose $f(x)$ is convex, so $\mca H_x f> 0$ 
+(positive-definite) everywhere, then $\mbb L f$ 
+is convex, i.e. $\mca H_p (\mbb L f)>0$. 
+:::
+_Proof:_ Computing the Hessian explicitly and recognize $\nabla_x f = p$
+\begin{align}
+    \mca H_p(\mbb L f) 
+    &= d_p [\nabla_p (\mbb L f)] = d_p \left[
+        x + J_{p\to x} p - J_{p\to x}\nabla_x f
+    \right] \\ 
+    &= d_p x = J_{p\to x} = J_{x\to p}^{-1} = \left(\mca H_x f\right)^{-1}
+\end{align}
+Convexity follows from the convexity of $\mca H_x f> 0$. 
+
+:::{.proposition name="involutary"}
+For convex $f$, the Legendre transform is involutary 
+\[ 
+    \mbb L \left[(\mbb L f)(p)\right] (x) = f(x)
+\] 
+:::
+_Proof:_ Unroll the definition
+\begin{align}
+    \mbb L \left[(\mbb L f)(p)\right] (x)
+    &= \mbb L \left[p\mapsto xp - f(x)\right] (x)\\ 
+    &= xp - \left[p\mapsto xp - f(x)\right]\, p 
+    = xp - xp - f(x) = f(x)
+\end{align}
+Note the dependence here: fixing $x$, we can fix $p=\nabla_x f$, which 
+in turn determines $x$ in the inner Legendre transform. 
+
+
+## Hamilton's equations {-}
+
+:::{.definition name="Hamiltonian"}
+Given the Lagrangian $\mca L(q, \dot q, t)$, the 
+    Hamiltonian is the Legendre transform of $\dot q\mapsto p$ 
+    holding $q$ fixed 
+    \[ 
+        H(q, p, t) = p\cdot \dot q - \mca L(q, \dot q(p), t)
+    \] 
+    where $p = \nabla_{\dot q} \mca L$ and $\dot q(p)$ 
+    is the implicit inverse of this equation. 
+:::
+
+:::{.theorem name="Hamilton's equations"} 
+The following equations are equivalent to the Euler-Lagrange 
+    equations \@ref(def:eulerLagrange): 
+    \begin{aligned}
+        \dot p 
+        = -\nabla_q H, \quad \dot q 
+        = \nabla_p H 
+    \end{aligned}
+    Collecting $\xi = p\oplus q$ and write
+    $H(p, q, t) = H(\xi, t)$, we have the compact expression 
+    \[ 
+        \pd t \xi = J\,  \nabla_\xi H, \quad J 
+        = \bigoplus \begin{pmatrix}
+            0 & 1 \\ -1 & 0 
+        \end{pmatrix}
+    \] 
+:::
+_Proof:_ Take care that $\dot q, p$ are implicit functions of each other 
+    and recognize $p=\nabla_{\dot q}\mca L$; holding $q$ fixed: 
+    \begin{align}
+        \nabla_p H(q, p, t) 
+        &= \nabla_p \left[p\cdot \dot q - \mca L(q, \dot q(p), t)\right] \\ 
+        &= \dot q + J_{p\to \dot q} p - J_{p\to \dot q}(\nabla_{\dot q}\mca L) 
+        = \dot q 
+    \end{align}
+    For the second equation, we're holding $p$ fixed, but $\dot q$ is still 
+    dependent upon $q$, then 
+    \begin{align}
+        \nabla_q H(q, p, t) 
+        &= \nabla_q \left[
+            p\cdot \dot q - \mca L(q, \dot q(p), t)
+        \right] \\ 
+        &= J_{q\to \dot q}p 
+        - \nabla_q \mca L - J_{q\to \dot q} (\nabla_{\dot q}\mca L) 
+        = - \nabla_q \mca L  \\ 
+        \dot p 
+        &= d_t \nabla_{\dot q}\mca L = \nabla_q \mca L 
+    \end{align}
+    the last equation holds by the Euler-Lagrange equations. 
+
+:::{.remark}
+For those who are interested in differential geometry, 
+Hamilton's equations 
+\[ 
+    \pd t \xi = J \, \nabla_\xi H 
+\] 
+is the component representation of the following implicit 
+equation which defines the vector field $X_H$ 
+_generating the time-translation of the system_: 
+\[ 
+    \omega(X_H, \, \cdot\, ) = dH
+\] 
+Here $\omega$ is the _symplectic form_ with representation $J$, 
+and $dH$ is the differential of $H$. 
+:::

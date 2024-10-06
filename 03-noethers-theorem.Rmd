@@ -1,0 +1,119 @@
+# Noether's theorem
+Noether's theorem elucidates how continuous symmetries 
+result in conserved quantities; the converse will be given 
+by Hamiltonian mechanics. 
+The key points in this section are: 
+
+1. The definition of a continuous symmetry. 
+2. Noether's theorem. 
+3. The conserved-quantity when $\mca L$ is time-invariant: the Hamiltonian. 
+
+It's convenient to now define a quantity we'll be using later very often: 
+
+:::{.definition name="canonical momentum"}
+Given the Lagrangian $\mca L(q, \dot q, t)$ of a system, 
+its canonical momentum is 
+\[ 
+    p = \nabla_{\dot q} \mca L(q, \dot q, t)
+\] 
+In terms of the canonical momentum, the Euler-Lagrange 
+equations read 
+\[ 
+    \mbb L_q = \dot p - \nabla_q \mca L = 0
+\] 
+:::
+
+We will make extensive use of lemma \@ref(lem:calcVariation), which 
+we state here again using the canonical momentum for convenience: 
+
+:::{.lemma #calcVariation1 name="ε-derivative of the perturbed Lagrangian"}
+Given a path $q:[a, b]\to \R$ and a perturbation path $\eta:[a, b]\to \R$, 
+define the parameterized family of paths $q_\epsilon=q + \epsilon \eta$, then 
+\[ 
+    d_\epsilon \mca L(q_\epsilon, \dot q_\epsilon) 
+    = -\eta \cdot \mbb L_q + d_t \left(\eta \cdot p\right)
+\] 
+:::
+
+:::{.definition name="continuous symmetry"}
+Consider a family of maps $q_\epsilon$ such that $q_0$ is the classical 
+trajectory w.r.t. the Lagrangian $\mca L$. Define 
+\[ 
+    \mca L_\epsilon = \mca L(q_\epsilon, \dot q_\epsilon, t)
+\] 
+as well as the parameterized action function 
+\[ 
+    S_\epsilon = \int_a^b \mca L(q_\epsilon, \dot q_\epsilon, t)\, dt 
+\] 
+The physical system has continuous symmetry under the transformation 
+parameterized by $q\mapsto q_\epsilon$ if 
+\[ 
+    d_\epsilon \big|_0 S_\epsilon = C
+\] 
+where $C$ is a constant independent of the dynamical variables $q, \dot q, t$. 
+In other words, infinitesimal reparameterization by $\epsilon$ 
+leaves the equations of motion unchanged. 
+:::
+
+:::{.proposition name="characterization of continuous symmetry via Lagrangian"}
+$\epsilon \mapsto q_\epsilon$ is a continuous symmetry if 
+\[ 
+    d_\epsilon \big|_0 \mca L_\epsilon = d_t F(q, \dot q, t)
+\] 
+Note that the right-hand side must be a **total time derivative.**
+:::
+_Proof:_ Direct computation: 
+\[ 
+    d_\epsilon \big|_0 S_\epsilon = 
+    \int_a^b d_\epsilon \big|_0 \mca L_\epsilon \, dt 
+    = \int_a^b d_t(F) \, dt = F(b)-F(a)
+\] 
+
+:::{.theorem #noether name="Noether's theorem"}
+Given a continuous symmetry $q_\epsilon$ such that 
+\[ 
+    d_\epsilon \big|_0 \mca L(q_\epsilon, \dot q_\epsilon, t) 
+    = d_t F(q, \dot q, t)
+\] 
+THe following Noether change is conserved along a classical 
+trajectory obeying the Euler-Lagrange equations 
+\[
+    Q = \left(d_\epsilon \big|_0 q_\epsilon \right) \cdot 
+    \nabla_{\dot q}\mca L(q, \dot q, t) - F(q, \dot q, t)
+\]
+Let $q_\epsilon = q + \epsilon \eta$ for small $\epsilon$ 
+(this is effectively adapting vector field perspective), 
+the Noether charge is 
+\[ 
+    Q = \eta \cdot p - F(q, \dot q, t)
+\] 
+:::
+_Proof:_ Direct computation invoking lemma \@ref(lem:calcVariation1): 
+the $\mbb L_q$ term vanishes on the classical trajectory 
+\begin{align}
+    d_t F 
+    &= d_\epsilon \big|_0 \mca L(q_\epsilon, \dot q_\epsilon) 
+    = - \eta \cdot \mbb L_q + d_t(\eta \cdot p) 
+    = d_t(\eta \cdot p) 
+\end{align}
+This implies that the time-derivative of the Noether charge is $0$. 
+
+
+:::{.proposition name="conservation of energy"}
+Let $\mca L$ be independent of time and denote the 
+time-translation transform 
+\[ 
+    q_\epsilon(t) = q(t+\epsilon)
+\] 
+This is a continuous symmetry with $F(q, \dot q) = \mca L(q, \dot q)$ 
+\[ 
+    d_\epsilon \big|_0 \mca L(q_\epsilon, \dot q_\epsilon)
+    = d_t \mca L
+\] 
+The associated $\eta = d_\epsilon \big|_0 q_\epsilon 
+= d_\epsilon \big|_0 q(t+\epsilon) = \dot q$. Substituting 
+into Noether's theorem yields the conserved quantity 
+\[ 
+    H = \dot q\cdot p - \mca L(q, \dot q)
+\] 
+:::
