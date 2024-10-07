@@ -15,7 +15,6 @@ Key takeaways of this part are:
     the two variables are always understood to obey an implicit equation.
 3. On strictly convex functions, the Legendre transform preserves 
     convexity, and is involutary. 
-4. 
 
 ## Legendre transform {-}
 
