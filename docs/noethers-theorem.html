@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3 Noether’s theorem | Physics 151 Section Notes</title>
-  <meta name="description" content="3 Noether’s theorem | Physics 151 Section Notes" />
+  <title>3 Noether’s theorem | Physics 151 F24 Notes</title>
+  <meta name="description" content="3 Noether’s theorem | Physics 151 F24 Notes" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3 Noether’s theorem | Physics 151 Section Notes" />
+  <meta property="og:title" content="3 Noether’s theorem | Physics 151 F24 Notes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3 Noether’s theorem | Physics 151 Section Notes" />
+  <meta name="twitter:title" content="3 Noether’s theorem | Physics 151 F24 Notes" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-02" />
+<meta name="date" content="2024-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -76,6 +76,7 @@
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction-to-the-course"><i class="fa fa-check"></i>Introduction to the course</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-these-notes"><i class="fa fa-check"></i>Using these notes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#a-note-on-notation"><i class="fa fa-check"></i>A note on notation</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="two-body-problem.html"><a href="two-body-problem.html"><i class="fa fa-check"></i><b>1</b> Two-body problem</a>
 <ul>
@@ -94,12 +95,17 @@
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#constraints"><i class="fa fa-check"></i>Constraints</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#extremization-formulation"><i class="fa fa-check"></i>Extremization formulation</a></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#representation-perspective"><i class="fa fa-check"></i>Representation perspective</a></li>
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#separability-of-quadratic-lagrangians"><i class="fa fa-check"></i>Separability of quadratic Lagrangians</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="noethers-theorem.html"><a href="noethers-theorem.html"><i class="fa fa-check"></i><b>3</b> Noether’s theorem</a></li>
 <li class="chapter" data-level="4" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html"><i class="fa fa-check"></i><b>4</b> Hamiltonian Mechanics</a>
 <ul>
-<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#legendre-transform"><i class="fa fa-check"></i>Legendre transform</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#legendre-transform"><i class="fa fa-check"></i>Legendre transform</a>
+<ul>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#convex-functions"><i class="fa fa-check"></i>Convex functions</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#properties-of-the-legendre-transform"><i class="fa fa-check"></i>Properties of the Legendre transform</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#hamiltons-equations"><i class="fa fa-check"></i>Hamilton’s equations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -112,7 +118,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Physics 151 Section Notes</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Physics 151 F24 Notes</a>
           </h1>
         </div>
 
@@ -123,7 +129,7 @@
 <div id="noethers-theorem" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">3</span> Noether’s theorem<a href="noethers-theorem.html#noethers-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Noether’s theorem elucidates how continuous symmetries
-result in conserved quantities; the converse will be given
+result in conserved quantities; the converse will be provided
 by Hamiltonian mechanics.
 The key points in this section are:</p>
 <ol style="list-style-type: decimal">
@@ -133,7 +139,7 @@ The key points in this section are:</p>
 </ol>
 <p>It’s convenient to now define a quantity we’ll be using later very often:</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-22" class="definition"><strong>Definition 3.1  (canonical momentum) </strong></span>Given the Lagrangian <span class="math inline">\(\mathcal L(q, \dot q, t)\)</span> of a system,
+<p><span id="def:unlabeled-div-21" class="definition"><strong>Definition 3.1  (canonical momentum) </strong></span>Given the Lagrangian <span class="math inline">\(\mathcal L(q, \dot q, t)\)</span> of a system,
 its canonical momentum is
 <span class="math display">\[
     p = \nabla_{\dot q} \mathcal L(q, \dot q, t)
@@ -155,7 +161,7 @@ define the parameterized family of paths <span class="math inline">\(q_\epsilon=
 \]</span></p>
 </div>
 <div class="definition">
-<p><span id="def:unlabeled-div-23" class="definition"><strong>Definition 3.2  (continuous symmetry) </strong></span>Consider a family of maps <span class="math inline">\(q_\epsilon\)</span> such that <span class="math inline">\(q_0\)</span> is the classical
+<p><span id="def:unlabeled-div-22" class="definition"><strong>Definition 3.2  (continuous symmetry) </strong></span>Consider a family of maps <span class="math inline">\(q_\epsilon\)</span> such that <span class="math inline">\(q_0\)</span> is the classical
 trajectory w.r.t. the Lagrangian <span class="math inline">\(\mathcal L\)</span>. Define
 <span class="math display">\[
     \mathcal L_\epsilon = \mathcal L(q_\epsilon, \dot q_\epsilon, t)
@@ -174,7 +180,7 @@ In other words, infinitesimal reparameterization by <span class="math inline">\(
 leaves the equations of motion unchanged.</p>
 </div>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-24" class="proposition"><strong>Proposition 3.1  (characterization of continuous symmetry via Lagrangian) </strong></span><span class="math inline">\(\epsilon \mapsto q_\epsilon\)</span> is a continuous symmetry if
+<p><span id="prp:unlabeled-div-23" class="proposition"><strong>Proposition 3.1  (characterization of continuous symmetry via Lagrangian) </strong></span><span class="math inline">\(\epsilon \mapsto q_\epsilon\)</span> is a continuous symmetry if
 <span class="math display">\[
     d_\epsilon \big|_0 \mathcal L_\epsilon = d_t F(q, \dot q, t)
 \]</span>
@@ -215,7 +221,7 @@ the <span class="math inline">\(\mathbb L_q\)</span> term vanishes on the classi
 \end{align}\]</span>
 This implies that the time-derivative of the Noether charge is <span class="math inline">\(0\)</span>.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-25" class="proposition"><strong>Proposition 3.2  (conservation of energy) </strong></span>Let <span class="math inline">\(\mathcal L\)</span> be independent of time and denote the
+<p><span id="prp:unlabeled-div-24" class="proposition"><strong>Proposition 3.2  (conservation of energy) </strong></span>Let <span class="math inline">\(\mathcal L\)</span> be independent of time and denote the
 time-translation transform
 <span class="math display">\[
     q_\epsilon(t) = q(t+\epsilon)

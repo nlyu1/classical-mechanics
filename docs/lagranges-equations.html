@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>2 Lagrange’s Equations | Physics 151 Section Notes</title>
-  <meta name="description" content="2 Lagrange’s Equations | Physics 151 Section Notes" />
+  <title>2 Lagrange’s Equations | Physics 151 F24 Notes</title>
+  <meta name="description" content="2 Lagrange’s Equations | Physics 151 F24 Notes" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="2 Lagrange’s Equations | Physics 151 Section Notes" />
+  <meta property="og:title" content="2 Lagrange’s Equations | Physics 151 F24 Notes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="2 Lagrange’s Equations | Physics 151 Section Notes" />
+  <meta name="twitter:title" content="2 Lagrange’s Equations | Physics 151 F24 Notes" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-02" />
+<meta name="date" content="2024-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -76,6 +76,7 @@
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction-to-the-course"><i class="fa fa-check"></i>Introduction to the course</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-these-notes"><i class="fa fa-check"></i>Using these notes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#a-note-on-notation"><i class="fa fa-check"></i>A note on notation</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="two-body-problem.html"><a href="two-body-problem.html"><i class="fa fa-check"></i><b>1</b> Two-body problem</a>
 <ul>
@@ -94,12 +95,17 @@
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#constraints"><i class="fa fa-check"></i>Constraints</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#extremization-formulation"><i class="fa fa-check"></i>Extremization formulation</a></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#representation-perspective"><i class="fa fa-check"></i>Representation perspective</a></li>
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#separability-of-quadratic-lagrangians"><i class="fa fa-check"></i>Separability of quadratic Lagrangians</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="noethers-theorem.html"><a href="noethers-theorem.html"><i class="fa fa-check"></i><b>3</b> Noether’s theorem</a></li>
 <li class="chapter" data-level="4" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html"><i class="fa fa-check"></i><b>4</b> Hamiltonian Mechanics</a>
 <ul>
-<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#legendre-transform"><i class="fa fa-check"></i>Legendre transform</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#legendre-transform"><i class="fa fa-check"></i>Legendre transform</a>
+<ul>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#convex-functions"><i class="fa fa-check"></i>Convex functions</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#properties-of-the-legendre-transform"><i class="fa fa-check"></i>Properties of the Legendre transform</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#hamiltons-equations"><i class="fa fa-check"></i>Hamilton’s equations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -112,7 +118,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Physics 151 Section Notes</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Physics 151 F24 Notes</a>
           </h1>
         </div>
 
@@ -127,8 +133,14 @@
 <li>A “covariant” formulation of Newton Cartesian equations.</li>
 <li>Equation of the trajectory satisfying the principle of least action.</li>
 </ol>
+<p>We note in the subfinal section that the two perspectives are related:
+the Euler-Lagrange vector <span class="math inline">\(\mathbb L_q\)</span> is (negative) the representing
+element of the directional derivative map <span class="math inline">\(\eta \mapsto (D_\eta \mathcal S)(q)\)</span>,
+which is a linear functional.</p>
 <p>Both perspectives are extremely important to the
-development of modern theoretical physics.</p>
+development of modern theoretical physics.
+Computationally, make sure to understand lemma <a href="lagranges-equations.html#lem:calcVariation">2.5</a>,
+which also appears in the proof of Noether’s theorem.</p>
 <div id="covariant-formulation" class="section level2 unnumbered hasAnchor">
 <h2>Covariant formulation<a href="lagranges-equations.html#covariant-formulation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="covariance-introduction" class="section level3 unnumbered hasAnchor">
@@ -334,7 +346,7 @@ equations are fulfilled if and only if a certain action functional
 is extremized. This yields a powerful variational perspective on
 physicality.</p>
 <div class="definition">
-<p><span id="def:actionFunctional" class="definition"><strong>Definition 2.4  (action functional) </strong></span>Given a Lagrangian $L(q, q, t) (definition <a href="lagranges-equations.html#def:lagrangian">2.1</a>),
+<p><span id="def:actionFunctional" class="definition"><strong>Definition 2.4  (action functional) </strong></span>Given a Lagrangian <span class="math inline">\(\mathcal L(q, \dot q, t)\)</span> (definition <a href="lagranges-equations.html#def:lagrangian">2.1</a>),
 its associated action functional <span class="math inline">\(\mathcal S_{[a, b]}(p)\)</span> takes in <span class="math inline">\(3\)</span> arguments:</p>
 <ol style="list-style-type: decimal">
 <li>Begining time <span class="math inline">\(a\in \mathbb R\)</span>.</li>
@@ -373,7 +385,7 @@ To reduce notation clutter, we abbreviate this as
 gives us the directional derivative when the input perturbation
 is endpoint-preserving.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-19" class="theorem"><strong>Theorem 2.2  (endpoint-preserving derivative) </strong></span>For endpoint-preserving <span class="math inline">\(\eta:[a, b]\to \mathbb R\)</span> such that
+<p><span id="thm:directionalDerivative" class="theorem"><strong>Theorem 2.2  (endpoint-preserving derivative) </strong></span>For endpoint-preserving <span class="math inline">\(\eta:[a, b]\to \mathbb R\)</span> such that
 <span class="math inline">\(\eta(a)=\eta(b)=0\)</span>, the directional derivative of <span class="math inline">\(\mathcal S\)</span> is given by
 <span class="math display">\[
     (D_\eta \mathcal S)(q) = -\int_a^b \mathbb L_q(t) \eta(t)\, dt
@@ -398,10 +410,11 @@ Slide <span class="math inline">\(d_\epsilon\)</span> into the integral and appl
     -\int_a^b \eta \cdot \mathbb L_q\, dt
     = -\int_a^b \eta \cdot \mathbb L_q\, dt
 \end{align}\]</span></p>
-<p>The following lemma is the key component in the calculus
-of variations. Make sure it is read carefully.</p>
+<p><span style="color:green">
+The following lemma is the key component in the calculus
+of variations. </span> Make sure to read it carefully.</p>
 <div class="lemma">
-<p><span id="lem:calcVariation" class="lemma"><strong>Lemma 2.5  (ε-derivative of the perturbed Lagrangian) </strong></span>With <span class="math inline">\(q_\epsilon=q + \epsilon \eta\)</span> given in <a href="lagranges-equations.html#eq:pathFamily">(2.2)</a>
+<p><span id="lem:calcVariation" class="lemma"><strong>Lemma 2.5  (ε-derivative of the perturbed Lagrangian) </strong></span>With <span class="math inline">\(q_\epsilon=q + \epsilon \eta\)</span> as in <a href="lagranges-equations.html#eq:pathFamily">(2.2)</a>
 <span class="math display">\[
     d_\epsilon \mathcal L(q_\epsilon, \dot q_\epsilon)
     = -\eta \cdot \mathbb L_q + d_t \left(\eta \cdot \nabla_{\dot q}\mathcal L\right)
@@ -424,7 +437,7 @@ of variations. Make sure it is read carefully.</p>
 \end{align}\]</span>
 On the second line, we used integration by parts on the time-derivative
 to transfer the time-derivative on <span class="math inline">\(\eta\)</span> (which we don’t like)
-to <span class="math inline">\(\nabla_{\dot q}\mathcal L\)</span> (which we like, since it appears in <span class="math inline">\(\mathbb L_q\)</span>.</p>
+to <span class="math inline">\(\nabla_{\dot q}\mathcal L\)</span> (which we like, since it appears in <span class="math inline">\(\mathbb L_q\)</span>).</p>
 <p>It is a standard result in real analysis (fundamental lemma of the
 calculus of variations) that for
 <span class="math display">\[
@@ -435,7 +448,7 @@ to be <span class="math inline">\(0\)</span> for all reasonable endpoint-preserv
 <span class="math inline">\(\mathbb L_q(t)\)</span> must be <span class="math inline">\(0\)</span>. This allows us to prove another
 equivalence result.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-20" class="theorem"><strong>Theorem 2.3  (Hamilton's principle) </strong></span>Recall that, given a Lagrangian <span class="math inline">\(\mathcal L(q, \dot q, \epsilon)\)</span>,
+<p><span id="thm:unlabeled-div-19" class="theorem"><strong>Theorem 2.3  (Hamilton's principle) </strong></span>Recall that, given a Lagrangian <span class="math inline">\(\mathcal L(q, \dot q, \epsilon)\)</span>,
 we call a path <span class="math inline">\(q:[a, b]\to \mathbb R^n\)</span> physical iff
 <span class="math display">\[
     \mathbb L_q(t)=0, \quad t\in [a, b], \quad
@@ -450,12 +463,58 @@ w.r.t all endpoint-preserving perturbations
 \]</span></p>
 </div>
 </div>
+<div id="representation-perspective" class="section level2 unnumbered hasAnchor">
+<h2>Representation perspective<a href="lagranges-equations.html#representation-perspective" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section we give some intuition to the equation
+<span class="math display" id="eq:actionLagrangianEquation">\[
+    (D_\eta \mathcal S)(q) = -\langle\mathbb L_q, \eta\rangle, \quad
+    \langle f, g\rangle= \int_a^b f(t)g(t)\, dt
+    \tag{2.3}
+\]</span></p>
+<p>To motivate this, consider a finite-dimensional real
+vector space <span class="math inline">\(V\)</span> equipped with an inner product
+<span class="math inline">\(\langle a, b\rangle\)</span>. A (real) <strong>linear functional</strong> <span class="math inline">\(\alpha\)</span>
+on the space of <span class="math inline">\(V\)</span> is a function of the signature
+<span class="math inline">\(\alpha:V\to \mathbb R\)</span> satisfying linearity:
+<span class="math display">\[
+    \alpha(u + c v) = \alpha(u) + c\alpha(v), \quad \forall u, v\in V, \quad
+    c\in \mathbb R
+\]</span>
+Some thought shows that every linear functional
+is uniquely specified by another vector <span class="math inline">\(a\in V\)</span> according to
+<span class="math inline">\(\alpha(v) = \langle a, v\rangle\)</span>. Fix any basis <span class="math inline">\(\{b_1, \cdots b_n\}\)</span>,
+given <span class="math inline">\(\alpha:V\to \mathbb R\)</span> we let
+<span class="math display">\[
+    a = \sum_{j=1}^n \alpha(b_j) b_j
+    \implies
+    \langle a, \sum_{j=1}^N c_j b_j\rangle= \sum c_j \alpha(b_j) =
+    \alpha\left(
+    \sum_{j=1}^N c_j b_j
+    \right)
+\]</span>
+Fixing an interval <span class="math inline">\(a, b\)</span> and classical trajectory <span class="math inline">\(q\)</span> on <span class="math inline">\(a, b\)</span>,
+note the following facts:</p>
+<ol style="list-style-type: decimal">
+<li>the set of all endpoint-preserving
+perturbations <span class="math inline">\(\eta:[a, b]\to \mathbb R^n\)</span> form a vector space <span class="math inline">\(V\)</span>.</li>
+<li>The map <span class="math inline">\(\eta\mapsto (D_\eta \mathcal S)(q)\)</span> is a
+linear functional w.r.t. <span class="math inline">\(\eta\)</span>: this is the main content of
+theorem <a href="lagranges-equations.html#thm:directionalDerivative">2.2</a>.
+With regards to our previous discussion,
+theorem <a href="lagranges-equations.html#thm:directionalDerivative">2.2</a> equivalently states that we can regard
+<span class="math display">\[
+-\mathbb L_q = (\nabla_q - d_t \nabla_{\dot q})\mathcal L(q, \dot q)
+\]</span>
+as the representation of the linear functional <span class="math inline">\(\eta \mapsto (D_\eta \mathcal S)(q)\)</span>,
+just as how <span class="math inline">\(a\in V\)</span> represents <span class="math inline">\(\alpha:V\to \mathbb R\)</span>.</li>
+</ol>
+</div>
 <div id="separability-of-quadratic-lagrangians" class="section level2 unnumbered hasAnchor">
 <h2>Separability of quadratic Lagrangians<a href="lagranges-equations.html#separability-of-quadratic-lagrangians" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The following result is also used in the
 path integral formulation of quantum mechanics.</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-21" class="proposition"><strong>Proposition 2.2  (Actions of quadratic Lagrangians are separable about the classical trajectory) </strong></span>Given a quadratic Lagrangian
+<p><span id="prp:unlabeled-div-20" class="proposition"><strong>Proposition 2.2  (Actions of quadratic Lagrangians are separable about the classical trajectory) </strong></span>Given a quadratic Lagrangian
 <span class="math display">\[
     \mathcal L(q, \dot q) = u\, \dot q^2 + v\, q^2
 \]</span>
@@ -513,7 +572,7 @@ Taylor expanding about <span class="math inline">\(\epsilon=0\)</span> yields
     + \dfrac 1 2 (\eta \cdot \nabla_q + \dot \eta \cdot \nabla_{\dot q})^2 \mathcal L \\
     &amp;= \mathcal L(q, \dot q) + \epsilon \mathcal L(\eta, \dot \eta)
     + (\eta \cdot \nabla_q + \dot \eta \cdot \nabla_{\dot q}) \mathcal L
-    \tag{2.3}
+    \tag{2.4}
 \end{align}\]</span>
 We will now show that the extra last term (which came from the linear expansion)
 is zero when <span class="math inline">\(\eta\)</span> is time-dependent. We do this by using the product
@@ -526,7 +585,7 @@ rule and the condition that at <span class="math inline">\(\epsilon=0\)</span>, 
 \end{align}\]</span>
 Where we recognized
 <span class="math inline">\(\eta \cdot \nabla_q - \eta \cdot (d_t\nabla_{\dot q})\mathcal L
-= -\eta \cdot \mathbb L = 0\)</span>. Substituting back into equation <a href="lagranges-equations.html#eq:separationEquation">(2.3)</a>
+= -\eta \cdot \mathbb L = 0\)</span>. Substituting back into equation <a href="lagranges-equations.html#eq:separationEquation">(2.4)</a>
 <span class="math display">\[
     \mathcal L(q + \epsilon \eta, \dot q + \epsilon \dot \eta)
     = \mathcal L(q, \dot q) + \epsilon \mathcal L(\eta, \dot \eta) +

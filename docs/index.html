@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Physics 151 Section Notes</title>
-  <meta name="description" content="Physics 151 Section Notes" />
+  <title>Physics 151 F24 Notes</title>
+  <meta name="description" content="Physics 151 F24 Notes" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Physics 151 Section Notes" />
+  <meta property="og:title" content="Physics 151 F24 Notes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Physics 151 Section Notes" />
+  <meta name="twitter:title" content="Physics 151 F24 Notes" />
   
   
   
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-02" />
+<meta name="date" content="2024-10-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -76,6 +76,7 @@
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction-to-the-course"><i class="fa fa-check"></i>Introduction to the course</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-these-notes"><i class="fa fa-check"></i>Using these notes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#a-note-on-notation"><i class="fa fa-check"></i>A note on notation</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="two-body-problem.html"><a href="two-body-problem.html"><i class="fa fa-check"></i><b>1</b> Two-body problem</a>
 <ul>
@@ -94,12 +95,17 @@
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#constraints"><i class="fa fa-check"></i>Constraints</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#extremization-formulation"><i class="fa fa-check"></i>Extremization formulation</a></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#representation-perspective"><i class="fa fa-check"></i>Representation perspective</a></li>
 <li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#separability-of-quadratic-lagrangians"><i class="fa fa-check"></i>Separability of quadratic Lagrangians</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="noethers-theorem.html"><a href="noethers-theorem.html"><i class="fa fa-check"></i><b>3</b> Noether’s theorem</a></li>
 <li class="chapter" data-level="4" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html"><i class="fa fa-check"></i><b>4</b> Hamiltonian Mechanics</a>
 <ul>
-<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#legendre-transform"><i class="fa fa-check"></i>Legendre transform</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#legendre-transform"><i class="fa fa-check"></i>Legendre transform</a>
+<ul>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#convex-functions"><i class="fa fa-check"></i>Convex functions</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#properties-of-the-legendre-transform"><i class="fa fa-check"></i>Properties of the Legendre transform</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#hamiltons-equations"><i class="fa fa-check"></i>Hamilton’s equations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
@@ -112,7 +118,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Physics 151 Section Notes</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Physics 151 F24 Notes</a>
           </h1>
         </div>
 
@@ -121,9 +127,9 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">Physics 151 Section Notes</h1>
+<h1 class="title">Physics 151 F24 Notes</h1>
 <p class="author"><em>Nicholas Lyu, Arthur Jaffe</em></p>
-<p class="date"><em>2024-10-02</em></p>
+<p class="date"><em>2024-10-06</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -141,8 +147,9 @@ as coordinate representations of abstract linear transformations.</p>
 the emphasis changes from solving equations of motion to
 understanding the fundamental reasons they’re there in
 the first place. Key to navigating this change is understanding
-the role of ‘’symmetry and conservation laws.’’</p>
-<p>This course does not discuss quantum theory
+the role of symmetry and conservation laws, as well as the
+importance of <em>operators</em> in physics.</p>
+<p>The focus of this course is not quantum theory
 (maybe at the end, time permitting), but the
 classical treatment of symmetry and conservation
 will help motivate much of quantum theory’s constructions.</p>
@@ -153,6 +160,32 @@ will help motivate much of quantum theory’s constructions.</p>
 supplement Prof. Jaffe’s lecture notes on canvas.
 They are meant as a concise reminder of the main
 results in lecture.</p>
+</div>
+<div id="a-note-on-notation" class="section level2 unnumbered hasAnchor">
+<h2>A note on notation<a href="index.html#a-note-on-notation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is always important to be careful about
+derivative maps, where overloaded notation can frequently
+lead to confusion. We use the following standard notation for
+<em>partial derivatives</em>:<br />
+<span class="math display">\[
+    \partial_{x_1} f(x_1, x_2) =
+    \dfrac{\partial}{\partial x_1} f(x_1, x_2)
+\]</span>
+For second-order derivatives, we adopt
+<span class="math display">\[
+    \partial_{x_1, x_2}^2 f(x_1, x_2)
+    = \dfrac{\partial^2}{\partial x_1\partial x_2} f(x_1, x_2)
+\]</span>
+We also use the following not-so-standard notation
+for <em>total derivatives</em>:
+<span class="math display">\[
+    d_t f(x_1(t), x_2(t)) = \dfrac d {dt} f(x_1(t), x_2(t))
+\]</span>
+When we wish to specify the point at which a derivative is
+evaluated, we write e.g. 
+<span class="math display">\[
+    d_t\big|_0 f(x_1(t), x_2(t)) = x&#39;_1(0) \partial_{x_1} f + x&#39;_2(0) \partial_{x_2} f
+\]</span></p>
 
 </div>
 </div>

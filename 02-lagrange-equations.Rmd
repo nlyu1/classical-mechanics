@@ -5,8 +5,15 @@ In this section we develop two perspectives on Lagrange's equations:
 1. A "covariant" formulation of Newton Cartesian equations. 
 2. Equation of the trajectory satisfying the principle of least action. 
 
+We note in the subfinal section that the two perspectives are related: 
+the Euler-Lagrange vector $\mbb L_q$ is (negative) the representing 
+element of the directional derivative map $\eta \mapsto (D_\eta \mca S)(q)$, 
+which is a linear functional. 
+
 Both perspectives are extremely important to the 
 development of modern theoretical physics. 
+Computationally, make sure to understand lemma \@ref(lem:calcVariation), 
+which also appears in the proof of Noether's theorem. 
 
 ## Covariant formulation {-}
 
@@ -226,7 +233,7 @@ is extremized. This yields a powerful variational perspective on
 physicality. 
 
 :::{.definition #actionFunctional name="action functional"}
-Given a Lagrangian $\mca L(q, \dot q, t) (definition \@ref(def:lagrangian)), 
+Given a Lagrangian $\mca L(q, \dot q, t)$ (definition \@ref(def:lagrangian)), 
 its associated action functional $\mca S_{[a, b]}(p)$ takes in $3$ arguments: 
 
 1. Begining time $a\in \R$. 
@@ -268,7 +275,7 @@ The magic in the air is that the Euler-Lagrange vector
 gives us the directional derivative when the input perturbation 
 is endpoint-preserving. 
 
-:::{.theorem name="endpoint-preserving derivative"}
+:::{.theorem #directionalDerivative name="endpoint-preserving derivative"}
 For endpoint-preserving $\eta:[a, b]\to \R$ such that 
 $\eta(a)=\eta(b)=0$, the directional derivative of $\mca S$ is given by 
 \[ 
@@ -295,11 +302,12 @@ Slide $d_\epsilon$ into the integral and apply lemma
     = -\int_a^b \eta \cdot \mbb L_q\, dt
 \end{align}
 
+<span style="color:green">
 The following lemma is the key component in the calculus 
-of variations. Make sure it is read carefully. 
+of variations. </span> Make sure to read it carefully. 
 
 :::{.lemma #calcVariation name="ε-derivative of the perturbed Lagrangian"}
-With $q_\epsilon=q + \epsilon \eta$ given in \@ref(eq:pathFamily) 
+With $q_\epsilon=q + \epsilon \eta$ as in \@ref(eq:pathFamily) 
 \[ 
     d_\epsilon \mca L(q_\epsilon, \dot q_\epsilon) 
     = -\eta \cdot \mbb L_q + d_t \left(\eta \cdot \nabla_{\dot q}\mca L\right)
@@ -322,7 +330,7 @@ $\epsilon \to (q_\epsilon, \dot q_\epsilon) \to \mca L$, apply the chain rule
 \end{align}
 On the second line, we used integration by parts on the time-derivative 
 to transfer the time-derivative on $\eta$ (which we don't like) 
-to $\nabla_{\dot q}\mca L$ (which we like, since it appears in $\mbb L_q$. 
+to $\nabla_{\dot q}\mca L$ (which we like, since it appears in $\mbb L_q$). 
 
 It is a standard result in real analysis (fundamental lemma of the 
 calculus of variations) that for 
@@ -349,6 +357,52 @@ $\eta:[a, b]\to \R^n, \eta(a)=\eta(b)=0$
     (D_\eta \mca S)(q) = 0
 \] 
 :::
+
+## Representation perspective {-}
+
+In this section we give some intuition to the equation 
+\[ 
+    (D_\eta \mca S)(q) = -\la \mbb L_q, \eta\ra, \quad 
+    \la f, g\ra = \int_a^b f(t)g(t)\, dt 
+    (\#eq:actionLagrangianEquation)
+\] 
+
+To motivate this, consider a finite-dimensional real 
+vector space $V$ equipped with an inner product 
+$\la a, b\ra$. A (real) **linear functional** $\alpha$ 
+on the space of $V$ is a function of the signature 
+$\alpha:V\to \R$ satisfying linearity: 
+\[ 
+    \alpha(u + c v) = \alpha(u) + c\alpha(v), \quad \forall u, v\in V, \quad 
+    c\in \R 
+\] 
+Some thought shows that every linear functional 
+is uniquely specified by another vector $a\in V$ according to 
+$\alpha(v) = \la a, v\ra$. Fix any basis $\{b_1, \cdots b_n\}$,
+given $\alpha:V\to \R$ we let 
+\[ 
+    a = \sum_{j=1}^n \alpha(b_j) b_j 
+    \implies 
+    \la a, \sum_{j=1}^N c_j b_j\ra = \sum c_j \alpha(b_j) = 
+    \alpha\left(
+    \sum_{j=1}^N c_j b_j
+    \right)
+\] 
+Fixing an interval $a, b$ and classical trajectory $q$ on $a, b$, 
+note the following facts: 
+
+1. the set of all endpoint-preserving 
+    perturbations $\eta:[a, b]\to \R^n$ form a vector space $V$. 
+2. The map $\eta\mapsto (D_\eta \mca S)(q)$ is a 
+    linear functional w.r.t. $\eta$: this is the main content of 
+    theorem \@ref(thm:directionalDerivative). 
+With regards to our previous discussion, 
+theorem \@ref(thm:directionalDerivative) equivalently states that we can regard 
+\[ 
+    -\mbb L_q = (\nabla_q - d_t \nabla_{\dot q})\mca L(q, \dot q) 
+\] 
+as the representation of the linear functional $\eta \mapsto (D_\eta \mca S)(q)$, 
+just as how $a\in V$ represents $\alpha:V\to \R$. 
 
 ## Separability of quadratic Lagrangians {-}
 

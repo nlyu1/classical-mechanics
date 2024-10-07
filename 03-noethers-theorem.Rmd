@@ -1,6 +1,6 @@
 # Noether's theorem
 Noether's theorem elucidates how continuous symmetries 
-result in conserved quantities; the converse will be given 
+result in conserved quantities; the converse will be provided 
 by Hamiltonian mechanics. 
 The key points in this section are: 
 

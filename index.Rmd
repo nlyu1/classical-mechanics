@@ -1,5 +1,5 @@
 ---
-title: "Physics 151 Section Notes"
+title: "Physics 151 F24 Notes"
 author: "Nicholas Lyu, Arthur Jaffe"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -55,16 +55,42 @@ There is a similar shift in perspective in physics, when
 the emphasis changes from solving equations of motion to 
 understanding the fundamental reasons they're there in 
 the first place. Key to navigating this change is understanding 
-the role of ''symmetry and conservation laws.'' 
+the role of symmetry and conservation laws, as well as the 
+importance of _operators_ in physics. 
 
-This course does not discuss quantum theory 
+The focus of this course is not quantum theory 
 (maybe at the end, time permitting), but the 
 classical treatment of symmetry and conservation 
 will help motivate much of quantum theory's constructions. 
-
 
 ## Using these notes {-}
 These notes summarize and, occasionally, 
 supplement Prof. Jaffe's lecture notes on canvas. 
 They are meant as a concise reminder of the main 
 results in lecture. 
+
+## A note on notation {-}
+
+It is always important to be careful about 
+derivative maps, where overloaded notation can frequently 
+lead to confusion. We use the following standard notation for 
+_partial derivatives_:  
+\[ 
+    \pd {x_1} f(x_1, x_2) = 
+    \df{\partial}{\partial x_1} f(x_1, x_2)
+\] 
+For second-order derivatives, we adopt 
+\[ 
+    \pd {x_1, x_2}^2 f(x_1, x_2) 
+    = \df{\partial^2}{\partial x_1\partial x_2} f(x_1, x_2)
+\] 
+We also use the following not-so-standard notation 
+for _total derivatives_: 
+\[ 
+    d_t f(x_1(t), x_2(t)) = \df d {dt} f(x_1(t), x_2(t))
+\] 
+When we wish to specify the point at which a derivative is 
+evaluated, we write e.g. 
+\[ 
+    d_t\big|_0 f(x_1(t), x_2(t)) = x'_1(0) \pd {x_1} f + x'_2(0) \pd {x_2} f
+\] 
