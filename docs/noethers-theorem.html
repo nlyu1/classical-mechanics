@@ -198,7 +198,7 @@ Note that the right-hand side must be a <strong>total time derivative.</strong><
     d_\epsilon \big|_0 \mathcal L(q_\epsilon, \dot q_\epsilon, t)
     = d_t F(q, \dot q, t)
 \]</span>
-THe following Noether change is conserved along a classical
+The following Noether change is conserved along a classical
 trajectory obeying the Euler-Lagrange equations
 <span class="math display">\[
     Q = \left(d_\epsilon \big|_0 q_\epsilon \right) \cdot
@@ -209,6 +209,11 @@ Let <span class="math inline">\(q_\epsilon = q + \epsilon \eta\)</span> for smal
 the Noether charge is
 <span class="math display">\[
     Q = \eta \cdot p - F(q, \dot q, t)
+\]</span>
+One special case is for <span class="math inline">\(F\)</span> to vanish, in which case
+<span class="math display">\[
+    d_\epsilon \big|_0 \mathcal L(q_\epsilon, \dot q_\epsilon, t) = 0
+    \implies Q = \eta \cdot p \text{ conserved.}
 \]</span></p>
 </div>
 <p><em>Proof:</em> Direct computation invoking lemma <a href="noethers-theorem.html#lem:calcVariation1">3.1</a>:

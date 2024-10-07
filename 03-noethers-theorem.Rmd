@@ -75,7 +75,7 @@ Given a continuous symmetry $q_\epsilon$ such that
     d_\epsilon \big|_0 \mca L(q_\epsilon, \dot q_\epsilon, t) 
     = d_t F(q, \dot q, t)
 \] 
-THe following Noether change is conserved along a classical 
+The following Noether change is conserved along a classical 
 trajectory obeying the Euler-Lagrange equations 
 \[
     Q = \left(d_\epsilon \big|_0 q_\epsilon \right) \cdot 
@@ -87,6 +87,11 @@ the Noether charge is
 \[ 
     Q = \eta \cdot p - F(q, \dot q, t)
 \] 
+One special case is for $F$ to vanish, in which case 
+\[ 
+    d_\epsilon \big|_0 \mca L(q_\epsilon, \dot q_\epsilon, t) = 0
+    \implies Q = \eta \cdot p \text{ conserved.}
+\] 
 :::
 _Proof:_ Direct computation invoking lemma \@ref(lem:calcVariation1): 
 the $\mbb L_q$ term vanishes on the classical trajectory 
@@ -97,7 +102,6 @@ the $\mbb L_q$ term vanishes on the classical trajectory
     = d_t(\eta \cdot p) 
 \end{align}
 This implies that the time-derivative of the Noether charge is $0$. 
-
 
 :::{.proposition name="conservation of energy"}
 Let $\mca L$ be independent of time and denote the 
