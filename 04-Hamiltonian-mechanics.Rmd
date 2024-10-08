@@ -226,7 +226,7 @@ represented by $\Gamma$, and $dH$ is the differential of $H$.
 
 <details>
 <summary> optional material: relation between implicit 
-and coordinate equation </summary>
+and coordinate equations; differential geometry </summary>
 Given a chart $x=(x_1, \cdots, x_n)$ on a manifold $M$ (like fixing 
 a basis), a **vector field** $X$ can be understood as a _directional derivative_ 
 operation that consumes a scalar function $f$ and outputs $X\, f$ (read as 
