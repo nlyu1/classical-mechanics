@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-06" />
+<meta name="date" content="2024-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -107,6 +107,14 @@
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#properties-of-the-legendre-transform"><i class="fa fa-check"></i>Properties of the Legendre transform</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#hamiltons-equations"><i class="fa fa-check"></i>Hamilton’s equations</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#the-poisson-bracket"><i class="fa fa-check"></i>The Poisson bracket</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#liouvilles-theorem"><i class="fa fa-check"></i>Liouville’s theorem</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#optional-probability-on-phase-space"><i class="fa fa-check"></i>Optional: probability on phase space</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html"><i class="fa fa-check"></i><b>5</b> Spacetime geometry</a>
+<ul>
+<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#matrix-representation-of-spacetime"><i class="fa fa-check"></i>Matrix representation of spacetime</a></li>
+<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#lorentz-group"><i class="fa fa-check"></i>Lorentz group</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -129,7 +137,7 @@
 <div id="header">
 <h1 class="title">Physics 151 F24 Notes</h1>
 <p class="author"><em>Nicholas Lyu, Arthur Jaffe</em></p>
-<p class="date"><em>2024-10-06</em></p>
+<p class="date"><em>2024-10-08</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered hasAnchor">
 <h1>Preface<a href="index.html#preface" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -138,7 +146,7 @@ iteration of Arthur Jaffe’s <em>Mechanics</em> course at
 Harvard (Physics, 151).</p>
 <div id="introduction-to-the-course" class="section level2 unnumbered hasAnchor">
 <h2>Introduction to the course<a href="index.html#introduction-to-the-course" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>For those who learn math, at some point
+<p>For mathematics concentrators, at some point
 (late into high school or in college) there is a
 change of perspective from <em>computation</em> to <em>proof</em>-based math.
 One stops viewing matrices as large blobs of numbers but
@@ -160,6 +168,14 @@ will help motivate much of quantum theory’s constructions.</p>
 supplement Prof. Jaffe’s lecture notes on canvas.
 They are meant as a concise reminder of the main
 results in lecture.</p>
+<p>The main deliverables of these notes are:</p>
+<ol style="list-style-type: decimal">
+<li>Covariant and extremal-action perspectives on Lagrangian mechanics.</li>
+<li>Connection between Lagrangian and Hamiltonian mechanics
+via the Legendre transform.</li>
+<li>Nother’s theorem: continuous symmetry <span class="math inline">\(\implies\)</span> conserved quantity.</li>
+<li>Spacetime geometry: unitary representation of (a component of) the Lorentz group.</li>
+</ol>
 </div>
 <div id="a-note-on-notation" class="section level2 unnumbered hasAnchor">
 <h2>A note on notation<a href="index.html#a-note-on-notation" class="anchor-section" aria-label="Anchor link to header"></a></h2>

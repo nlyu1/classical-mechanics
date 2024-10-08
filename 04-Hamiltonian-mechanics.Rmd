@@ -1,20 +1,29 @@
 # Hamiltonian Mechanics 
 
-We begin by enumerating three properties of the Legendre 
+We begin by exporing the properties of the Legendre 
 transform, which relates (convex) Lagrangians and Hamiltonians. 
+We next introduce Hamilton's equations, with some 
+optional perspective from differential geometry 
+which yield some of the most mathematically satisfactory / beautiful 
+treatment of the topic. 
 
 Key takeaways of this part are: 
 
 1. The Hamiltonian $H(q, p, t)$ is the Legendre transform of $\mca L(q, \dot q, t)$ 
-    fixing $q, t$. 
-2. Fixing $q, t$, the conjugate variables $\dot q$ and $p$ are functions 
+    fixing $q, t$; fixing $q, t$, the conjugate variables 
+    $\dot q$ and $p$ are functions 
     of each other by $\nabla_{\dot q} \mca L = p$ and $\dot q = \nabla_p H$ 
     (lemma \@ref(lem:legendreConjugateRelation)). 
     The Jacobian $J_{p\to q}$ is the Hessian. 
 2. When the $\sup$ is dropped in the Legendre transform, 
-    the two variables are always understood to obey an implicit equation.
-3. On strictly convex functions, the Legendre transform preserves 
-    convexity, and is involutary. 
+    the two variables are always understood to obey 
+    an implicit equation.
+3. On strictly convex functions, the Legendre transform _preserves 
+    convexity, and is involutary_. 
+4. The scalar Hamiltonian function $H(q, p, t)\in \R$ 
+    generates the flow of time in phase space, or time-translation symmetry. 
+5. Converse to Noether's theorem: every scalar function on phase space 
+    generates a flow corresponding to its continuous symmetry: 
 
 ## Legendre transform {-}
 
@@ -291,3 +300,9 @@ representations on the RHS. The previous equation implies
     = -\Gamma X_H \iff X_H = \Gamma \nabla_H 
 \] 
 </details>
+
+## The Poisson bracket {-}
+
+## Liouville's theorem {-}
+
+## Optional: probability on phase space {-}

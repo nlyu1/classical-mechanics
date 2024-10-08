@@ -1,0 +1,159 @@
+# Spacetime geometry 
+
+We introduce the Minkowski metric and the Lorentz group, and 
+show that the algebra is neatly represented by $2\times 2$ complex matrices. 
+
+Key takeaways: 
+
+1. Under the Hermitian-matrix representation of 
+spacetime \@ref(def:spacetimeRepresentation), determinant correspond to the 
+Minkowski norm. Rotations are represented by unitary conjugation, while 
+Lorentz boosts are represented by Hermitian conjugation. 
+
+In this section, we work with $2\times 2$ complex matrices. 
+Recall that a linear operator $A$ is 
+
+1. Hermitian (self-adjoint) if $A^\dag = A$, where $A^\dag$ is the conjugate transpose. 
+2. Unitary if $AA^\dag = A^\dag A = \mbf 1$. 
+
+Let $\mca H_2$ denote the set of $2\times 2$ Hermitian matrices and $U(2)$ 
+denote the set of $2\times 2$ unitary matrices.
+
+## Matrix representation of spacetime {-}
+
+In this section, we define a representation of spacetime 
+via a bijection between $\mbb R^4$ and $\mca H_2$ \@ref(def:spacetimeRepresentation); 
+we also introduce the Minkowski metric \@ref(def:minkowski). 
+the space $\mbb R^4\cong \mbb R\times \mbb R^3$ will be 
+understood as $4$-dimensional spacetime. 
+
+Both unitary matrices and Hermitian matrices are _normal_ thus subject to 
+the spectral theorem, so one may think of them as a diagonal matrix of eigenvalues 
+in some orthonormal basis. In particular: 
+
+1. Hermitian matrices have real eigenvalues. 
+2. Unitary matrices have complex eigenvalues with unit norm of the form $e^{i\theta}$. 
+
+An immediate corollary of the observation above is 
+
+:::{.proposition}
+Every unitary $U=\exp(iH)$ is the complex exponential of 
+some Hermitian matrix $H$. 
+:::
+
+Proceeding, recall the Pauli matrices 
+\[ 
+    \mbf 1 = \begin{bmatrix} 1 \\ & 1\end{bmatrix}, \quad 
+    \sigma_x = \begin{bmatrix} & 1 \\ 1 \end{bmatrix}, \quad 
+    \sigma_y = \begin{bmatrix} & -i \\ i \end{bmatrix}, \quad 
+    \sigma_z = \begin{bmatrix} 1 \\ & -1\end{bmatrix}
+\] 
+The space $\mca H_2$ of $2\times 2$ Hermitian matrices is a vector space, 
+and it comes equipped with the following inner product: 
+
+:::{.definition #hilberSchmidt name="Hilbert-Schmidt inner product"} 
+The Hilbert-Schmidt inner product defined on the space of linear operators 
+    over a finite-dimensional Hilbert space of dimension $d$ is  
+    \[ 
+        \la A, B\ra = \df 1 d \mrm{Tr}(A^\dag B)
+    \] 
+    In a basis representation, this corresponds to the flattened vector inner product. 
+:::
+
+The Pauli matrices are special because they form an orthonormal basis for $\mca H_2$: 
+
+:::{.proposition}
+The Pauli matrices are involutary $\sigma_i^2 = \mbf 1$ and 
+    form an orthonormal basis for $\mca H_2$ under the Hilbert-Schmidt 
+    inner product. 
+:::
+_Proof:_ Direct computation, one can verify. 
+
+:::{.definition #spacetimeRepresentation name="representation of spacetime"}
+We identify points in $\R^4$ 
+    \[ 
+        x=(x_t, x_1, x_2, x_3)\in \R^4
+    \]  
+    with $2\times 2$ Hermitian matrices 
+    \[ 
+        \hat x 
+        = x_t\mbf 1 + x_1\sigma_x + x_2\sigma_y + x_3\sigma_3 = 
+        \begin{bmatrix} x_t + x_3 & x_1 - i x_2  \\ x_1 + ix_2 & x_t - x_3
+        \end{bmatrix}\in \mca H_2
+    \] 
+    The representation is invertible by Fourier 
+    decomposition onto the Pauli basis by \@ref(def:hilberSchmidt): 
+    \[ 
+        x_t = \la \hat x, \mbf 1\ra = \df 1 2 \mrm{tr}(\hat x\mbf 1), \quad 
+        x_{i\in \{1, 2, 3\}} = \la \hat x, \sigma_i\ra = \df 1 2 \mrm{tr}(\hat x\sigma_i) 
+    \] 
+:::
+
+:::{.definition #minkowski name="Minkowski metric"}
+The Minkowski metric over $\R^4$ is the bilinear map 
+    $\la \, \cdot\, , \, \cdot\, \ra_M:\R^4\times \R^4\to \R$. 
+    \[ 
+        \la x, y\ra_M = x_ty_t - x_1y_1 - x_2y_2 - x_3y_3
+    \] 
+    We denote the Minkowski norm it induces by $\|\, \cdot\|^2_M:\R^4\to \R$, 
+    defined by $\|x\|_M^2 = \la x, x\ra_M$. 
+:::
+
+One purpose of the 
+definition \@ref(def:spacetimeRepresentation) is the following 
+
+:::{.proposition}
+Under the Pauli identification of $\R^4$
+    \label{prop:det_metric}
+    \[ 
+        \det \hat x = \la x, x\ra_M 
+    \] 
+    \prf Direct computation: $\det \hat x = x_t^2 - x_1^2 - x_2^2 - x_3^2$. 
+:::
+
+## Lorentz group {-}
+
+We wish to investigate linear transformations on $\R^4$ which leave the Minkowski 
+metric invariant, since these transformations form the Lorentz group. 
+
+:::{.definition name="Lorentz group"}
+The Lorentz group $\mca L$ is the subgroup of $\mrm{GL}(4, \R)$ (group of 
+    invertible linear transformations on $\R^4$) which preserve the Minkowski metric 
+    \[ 
+        A\in \mca L\iff \forall x, y\in \R^4, \la x, y\ra_M = \la Ax, Ay\ra
+        \iff \forall x\in \R^4, \|x\|^2_M = \|Ax\|^2_M
+    \] 
+:::
+
+Recall that inverse-conjugating any matrix $A\mapsto BAB^{-1}$ 
+will not change the eigenvalues of $A$. In particular, inverse-conjugating 
+$\hat x\in \mca H_2$ by any $2\times 2$ invertible matrix yields 
+another element of $\mca H_2$; since $\mca H_2$ represent 
+points in spacetime, it is natural to ask the 
+$H\mapsto BHB^{-1}$ induces on $\R^4$.
+
+:::{.theorem name="conjugation-induced linear transform"}
+conjugation in $\mca H_2$ yields a linear transformation in $\R^4$: 
+    Equivalently, 
+    the map $A:\R^4\to \R^4$ which makes the diagram 
+    below commute is a linear operator. 
+
+```{r echo=FALSE, fig.align='center'}
+knitr::include_graphics(rep("images/LorentzRepresentation.png", 1))
+```
+:::
+_Proof_: Fixing $\hat A:\mca C^2\to \mca C^2$ and let $x, y\in \R^4$.
+    Let $\sigma_i$ be any Pauli basis matrix, we show that $A$ is linear: 
+\begin{align}
+    \left[A(x+\alpha y)\right]_i &= 
+    \la \hat A(\hat x + \alpha \hat y)\hat A^\dag, \sigma_i\ra 
+    = \df 1 2 \mrm{tr}\left(\hat A (\hat x + \alpha \hat y)\hat A^\dag \sigma_i \right) \\ 
+    &= \df 1 2 \mrm{tr}\left(\hat A \hat x \hat A^\dag \sigma_i \right)  + 
+        \df 1 2 \alpha \mrm{tr}\left(\hat A \hat x \hat A^\dag \sigma_i \right) 
+    = (Ax)_i + \alpha(Ay)_i 
+\end{align}
+In particular, the representation of $\hat A$ as a matrix in $\R^4$ is
+\[ 
+    A_{ij} = (Ae_j)_i = \la \hat A \sigma_j \hat A^\dag, \sigma_i \ra 
+    = \df 1 2 \mrm{tr}\left(\hat A \sigma_j \hat A^\dag\sigma_i\right)
+\] 

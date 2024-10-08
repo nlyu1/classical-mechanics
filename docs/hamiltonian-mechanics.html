@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-06" />
+<meta name="date" content="2024-10-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="noethers-theorem.html"/>
-<link rel="next" href="bibliography.html"/>
+<link rel="next" href="spacetime-geometry.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -107,6 +107,14 @@
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#properties-of-the-legendre-transform"><i class="fa fa-check"></i>Properties of the Legendre transform</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#hamiltons-equations"><i class="fa fa-check"></i>Hamilton’s equations</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#the-poisson-bracket"><i class="fa fa-check"></i>The Poisson bracket</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#liouvilles-theorem"><i class="fa fa-check"></i>Liouville’s theorem</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#optional-probability-on-phase-space"><i class="fa fa-check"></i>Optional: probability on phase space</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html"><i class="fa fa-check"></i><b>5</b> Spacetime geometry</a>
+<ul>
+<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#matrix-representation-of-spacetime"><i class="fa fa-check"></i>Matrix representation of spacetime</a></li>
+<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#lorentz-group"><i class="fa fa-check"></i>Lorentz group</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -128,20 +136,29 @@
             <section class="normal" id="section-">
 <div id="hamiltonian-mechanics" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">4</span> Hamiltonian Mechanics<a href="hamiltonian-mechanics.html#hamiltonian-mechanics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>We begin by enumerating three properties of the Legendre
-transform, which relates (convex) Lagrangians and Hamiltonians.</p>
+<p>We begin by exporing the properties of the Legendre
+transform, which relates (convex) Lagrangians and Hamiltonians.
+We next introduce Hamilton’s equations, with some
+optional perspective from differential geometry
+which yield some of the most mathematically satisfactory / beautiful
+treatment of the topic.</p>
 <p>Key takeaways of this part are:</p>
 <ol style="list-style-type: decimal">
 <li>The Hamiltonian <span class="math inline">\(H(q, p, t)\)</span> is the Legendre transform of <span class="math inline">\(\mathcal L(q, \dot q, t)\)</span>
-fixing <span class="math inline">\(q, t\)</span>.</li>
-<li>Fixing <span class="math inline">\(q, t\)</span>, the conjugate variables <span class="math inline">\(\dot q\)</span> and <span class="math inline">\(p\)</span> are functions
+fixing <span class="math inline">\(q, t\)</span>; fixing <span class="math inline">\(q, t\)</span>, the conjugate variables
+<span class="math inline">\(\dot q\)</span> and <span class="math inline">\(p\)</span> are functions
 of each other by <span class="math inline">\(\nabla_{\dot q} \mathcal L = p\)</span> and <span class="math inline">\(\dot q = \nabla_p H\)</span>
 (lemma <a href="hamiltonian-mechanics.html#lem:legendreConjugateRelation">4.1</a>).
 The Jacobian <span class="math inline">\(J_{p\to q}\)</span> is the Hessian.</li>
 <li>When the <span class="math inline">\(\sup\)</span> is dropped in the Legendre transform,
-the two variables are always understood to obey an implicit equation.</li>
-<li>On strictly convex functions, the Legendre transform preserves
-convexity, and is involutary.</li>
+the two variables are always understood to obey
+an implicit equation.</li>
+<li>On strictly convex functions, the Legendre transform <em>preserves
+convexity, and is involutary</em>.</li>
+<li>The scalar Hamiltonian function <span class="math inline">\(H(q, p, t)\in \mathbb R\)</span>
+generates the flow of time in phase space, or time-translation symmetry.</li>
+<li>Converse to Noether’s theorem: every scalar function on phase space
+generates a flow corresponding to its continuous symmetry:</li>
 </ol>
 <div id="legendre-transform" class="section level2 unnumbered hasAnchor">
 <h2>Legendre transform<a href="hamiltonian-mechanics.html#legendre-transform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -410,6 +427,15 @@ representations on the RHS. The previous equation implies
     = -\Gamma X_H \iff X_H = \Gamma \nabla_H
 \]</span>
 </details>
+</div>
+<div id="the-poisson-bracket" class="section level2 unnumbered hasAnchor">
+<h2>The Poisson bracket<a href="hamiltonian-mechanics.html#the-poisson-bracket" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="liouvilles-theorem" class="section level2 unnumbered hasAnchor">
+<h2>Liouville’s theorem<a href="hamiltonian-mechanics.html#liouvilles-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="optional-probability-on-phase-space" class="section level2 unnumbered hasAnchor">
+<h2>Optional: probability on phase space<a href="hamiltonian-mechanics.html#optional-probability-on-phase-space" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
@@ -419,7 +445,7 @@ representations on the RHS. The previous equation implies
         </div>
       </div>
 <a href="noethers-theorem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="spacetime-geometry.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

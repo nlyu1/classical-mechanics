@@ -45,7 +45,7 @@ Harvard (Physics, 151).
 
 ## Introduction to the course {-}
 
-For those who learn math, at some point 
+For mathematics concentrators, at some point 
 (late into high school or in college) there is a 
 change of perspective from _computation_ to _proof_-based math. 
 One stops viewing matrices as large blobs of numbers but 
@@ -68,6 +68,14 @@ These notes summarize and, occasionally,
 supplement Prof. Jaffe's lecture notes on canvas. 
 They are meant as a concise reminder of the main 
 results in lecture. 
+
+The main deliverables of these notes are: 
+
+1. Covariant and extremal-action perspectives on Lagrangian mechanics. 
+2. Connection between Lagrangian and Hamiltonian mechanics 
+    via the Legendre transform. 
+3. Nother's theorem: continuous symmetry $\implies$ conserved quantity. 
+4. Spacetime geometry: unitary representation of (a component of) the Lorentz group. 
 
 ## A note on notation {-}
 

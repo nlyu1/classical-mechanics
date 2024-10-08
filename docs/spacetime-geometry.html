@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 Spacetime geometry | Physics 151 F24 Notes</title>
+  <meta name="description" content="5 Spacetime geometry | Physics 151 F24 Notes" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 Spacetime geometry | Physics 151 F24 Notes" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 Spacetime geometry | Physics 151 F24 Notes" />
+  
+  
+  
+
+<meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
+
+
+<meta name="date" content="2024-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="hamiltonian-mechanics.html"/>
+<link rel="next" href="bibliography.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#introduction-to-the-course"><i class="fa fa-check"></i>Introduction to the course</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-these-notes"><i class="fa fa-check"></i>Using these notes</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#a-note-on-notation"><i class="fa fa-check"></i>A note on notation</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="two-body-problem.html"><a href="two-body-problem.html"><i class="fa fa-check"></i><b>1</b> Two-body problem</a>
+<ul>
+<li class="chapter" data-level="" data-path="two-body-problem.html"><a href="two-body-problem.html#problem-setup"><i class="fa fa-check"></i>Problem setup</a></li>
+<li class="chapter" data-level="" data-path="two-body-problem.html"><a href="two-body-problem.html#three-conserved-quantities"><i class="fa fa-check"></i>Three conserved quantities</a></li>
+<li class="chapter" data-level="" data-path="two-body-problem.html"><a href="two-body-problem.html#orbits-effective-potential"><i class="fa fa-check"></i>Orbits, effective potential</a></li>
+<li class="chapter" data-level="" data-path="two-body-problem.html"><a href="two-body-problem.html#scattering"><i class="fa fa-check"></i>Scattering</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lagranges-equations.html"><a href="lagranges-equations.html"><i class="fa fa-check"></i><b>2</b> Lagrange’s Equations</a>
+<ul>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#covariant-formulation"><i class="fa fa-check"></i>Covariant formulation</a>
+<ul>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#covariance-introduction"><i class="fa fa-check"></i>Covariance: introduction</a></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#euler-lagrange-equations"><i class="fa fa-check"></i>Euler-Lagrange Equations</a></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#covariance-of-euler-lagrange-equations"><i class="fa fa-check"></i>Covariance of Euler-Lagrange Equations</a></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#constraints"><i class="fa fa-check"></i>Constraints</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#extremization-formulation"><i class="fa fa-check"></i>Extremization formulation</a></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#representation-perspective"><i class="fa fa-check"></i>Representation perspective</a></li>
+<li class="chapter" data-level="" data-path="lagranges-equations.html"><a href="lagranges-equations.html#separability-of-quadratic-lagrangians"><i class="fa fa-check"></i>Separability of quadratic Lagrangians</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="noethers-theorem.html"><a href="noethers-theorem.html"><i class="fa fa-check"></i><b>3</b> Noether’s theorem</a></li>
+<li class="chapter" data-level="4" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html"><i class="fa fa-check"></i><b>4</b> Hamiltonian Mechanics</a>
+<ul>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#legendre-transform"><i class="fa fa-check"></i>Legendre transform</a>
+<ul>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#convex-functions"><i class="fa fa-check"></i>Convex functions</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#properties-of-the-legendre-transform"><i class="fa fa-check"></i>Properties of the Legendre transform</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#hamiltons-equations"><i class="fa fa-check"></i>Hamilton’s equations</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#the-poisson-bracket"><i class="fa fa-check"></i>The Poisson bracket</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#liouvilles-theorem"><i class="fa fa-check"></i>Liouville’s theorem</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#optional-probability-on-phase-space"><i class="fa fa-check"></i>Optional: probability on phase space</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html"><i class="fa fa-check"></i><b>5</b> Spacetime geometry</a>
+<ul>
+<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#matrix-representation-of-spacetime"><i class="fa fa-check"></i>Matrix representation of spacetime</a></li>
+<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#lorentz-group"><i class="fa fa-check"></i>Lorentz group</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Physics 151 F24 Notes</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="spacetime-geometry" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">5</span> Spacetime geometry<a href="spacetime-geometry.html#spacetime-geometry" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>We introduce the Minkowski metric and the Lorentz group, and
+show that the algebra is neatly represented by <span class="math inline">\(2\times 2\)</span> complex matrices.</p>
+<p>Key takeaways:</p>
+<ol style="list-style-type: decimal">
+<li>Under the Hermitian-matrix representation of
+spacetime <a href="spacetime-geometry.html#def:spacetimeRepresentation">5.2</a>, determinant correspond to the
+Minkowski norm. Rotations are represented by unitary conjugation, while
+Lorentz boosts are represented by Hermitian conjugation.</li>
+</ol>
+<p>In this section, we work with <span class="math inline">\(2\times 2\)</span> complex matrices.
+Recall that a linear operator <span class="math inline">\(A\)</span> is</p>
+<ol style="list-style-type: decimal">
+<li>Hermitian (self-adjoint) if <span class="math inline">\(A^\dagger= A\)</span>, where <span class="math inline">\(A^\dagger\)</span> is the conjugate transpose.</li>
+<li>Unitary if <span class="math inline">\(AA^\dagger= A^\dagger A = \mathbf 1\)</span>.</li>
+</ol>
+<p>Let <span class="math inline">\(\mathcal H_2\)</span> denote the set of <span class="math inline">\(2\times 2\)</span> Hermitian matrices and <span class="math inline">\(U(2)\)</span>
+denote the set of <span class="math inline">\(2\times 2\)</span> unitary matrices.</p>
+<div id="matrix-representation-of-spacetime" class="section level2 unnumbered hasAnchor">
+<h2>Matrix representation of spacetime<a href="spacetime-geometry.html#matrix-representation-of-spacetime" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this section, we define a representation of spacetime
+via a bijection between <span class="math inline">\(\mathbb R^4\)</span> and <span class="math inline">\(\mathcal H_2\)</span> <a href="spacetime-geometry.html#def:spacetimeRepresentation">5.2</a>;
+we also introduce the Minkowski metric <a href="spacetime-geometry.html#def:minkowski">5.3</a>.
+the space <span class="math inline">\(\mathbb R^4\cong \mathbb R\times \mathbb R^3\)</span> will be
+understood as <span class="math inline">\(4\)</span>-dimensional spacetime.</p>
+<p>Both unitary matrices and Hermitian matrices are <em>normal</em> thus subject to
+the spectral theorem, so one may think of them as a diagonal matrix of eigenvalues
+in some orthonormal basis. In particular:</p>
+<ol style="list-style-type: decimal">
+<li>Hermitian matrices have real eigenvalues.</li>
+<li>Unitary matrices have complex eigenvalues with unit norm of the form <span class="math inline">\(e^{i\theta}\)</span>.</li>
+</ol>
+<p>An immediate corollary of the observation above is</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-33" class="proposition"><strong>Proposition 5.1  </strong></span>Every unitary <span class="math inline">\(U=\exp(iH)\)</span> is the complex exponential of
+some Hermitian matrix <span class="math inline">\(H\)</span>.</p>
+</div>
+<p>Proceeding, recall the Pauli matrices
+<span class="math display">\[
+    \mathbf 1 = \begin{bmatrix} 1 \\ &amp; 1\end{bmatrix}, \quad
+    \sigma_x = \begin{bmatrix} &amp; 1 \\ 1 \end{bmatrix}, \quad
+    \sigma_y = \begin{bmatrix} &amp; -i \\ i \end{bmatrix}, \quad
+    \sigma_z = \begin{bmatrix} 1 \\ &amp; -1\end{bmatrix}
+\]</span>
+The space <span class="math inline">\(\mathcal H_2\)</span> of <span class="math inline">\(2\times 2\)</span> Hermitian matrices is a vector space,
+and it comes equipped with the following inner product:</p>
+<div class="definition">
+<p><span id="def:hilberSchmidt" class="definition"><strong>Definition 5.1  (Hilbert-Schmidt inner product) </strong></span>The Hilbert-Schmidt inner product defined on the space of linear operators
+over a finite-dimensional Hilbert space of dimension <span class="math inline">\(d\)</span> is<br />
+<span class="math display">\[
+        \langle A, B\rangle= \dfrac 1 d \mathrm{Tr}(A^\dagger B)
+    \]</span>
+In a basis representation, this corresponds to the flattened vector inner product.</p>
+</div>
+<p>The Pauli matrices are special because they form an orthonormal basis for <span class="math inline">\(\mathcal H_2\)</span>:</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-34" class="proposition"><strong>Proposition 5.2  </strong></span>The Pauli matrices are involutary <span class="math inline">\(\sigma_i^2 = \mathbf 1\)</span> and
+form an orthonormal basis for <span class="math inline">\(\mathcal H_2\)</span> under the Hilbert-Schmidt
+inner product.</p>
+</div>
+<p><em>Proof:</em> Direct computation, one can verify.</p>
+<div class="definition">
+<p><span id="def:spacetimeRepresentation" class="definition"><strong>Definition 5.2  (representation of spacetime) </strong></span>We identify points in <span class="math inline">\(\mathbb R^4\)</span>
+<span class="math display">\[
+        x=(x_t, x_1, x_2, x_3)\in \mathbb R^4
+    \]</span><br />
+with <span class="math inline">\(2\times 2\)</span> Hermitian matrices
+<span class="math display">\[
+        \hat x
+        = x_t\mathbf 1 + x_1\sigma_x + x_2\sigma_y + x_3\sigma_3 =
+        \begin{bmatrix} x_t + x_3 &amp; x_1 - i x_2  \\ x_1 + ix_2 &amp; x_t - x_3
+        \end{bmatrix}\in \mathcal H_2
+    \]</span>
+The representation is invertible by Fourier
+decomposition onto the Pauli basis by <a href="spacetime-geometry.html#def:hilberSchmidt">5.1</a>:
+<span class="math display">\[
+        x_t = \langle\hat x, \mathbf 1\rangle= \dfrac 1 2 \mathrm{tr}(\hat x\mathbf 1), \quad
+        x_{i\in \{1, 2, 3\}} = \langle\hat x, \sigma_i\rangle= \dfrac 1 2 \mathrm{tr}(\hat x\sigma_i)
+    \]</span></p>
+</div>
+<div class="definition">
+<p><span id="def:minkowski" class="definition"><strong>Definition 5.3  (Minkowski metric) </strong></span>The Minkowski metric over <span class="math inline">\(\mathbb R^4\)</span> is the bilinear map
+<span class="math inline">\(\langle\, \cdot\, , \, \cdot\, \rangle_M:\mathbb R^4\times \mathbb R^4\to \mathbb R\)</span>.
+<span class="math display">\[
+        \langle x, y\rangle_M = x_ty_t - x_1y_1 - x_2y_2 - x_3y_3
+    \]</span>
+We denote the Minkowski norm it induces by <span class="math inline">\(\|\, \cdot\|^2_M:\mathbb R^4\to \mathbb R\)</span>,
+defined by <span class="math inline">\(\|x\|_M^2 = \langle x, x\rangle_M\)</span>.</p>
+</div>
+<p>One purpose of the
+definition <a href="spacetime-geometry.html#def:spacetimeRepresentation">5.2</a> is the following</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-35" class="proposition"><strong>Proposition 5.3  </strong></span>Under the Pauli identification of <span class="math inline">\(\mathbb R^4\)</span>
+<span class="math display">\[
+        \det \hat x = \langle x, x\rangle_M
+    \]</span>
+Direct computation: <span class="math inline">\(\det \hat x = x_t^2 - x_1^2 - x_2^2 - x_3^2\)</span>.</p>
+</div>
+</div>
+<div id="lorentz-group" class="section level2 unnumbered hasAnchor">
+<h2>Lorentz group<a href="spacetime-geometry.html#lorentz-group" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We wish to investigate linear transformations on <span class="math inline">\(\mathbb R^4\)</span> which leave the Minkowski
+metric invariant, since these transformations form the Lorentz group.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-36" class="definition"><strong>Definition 5.4  (Lorentz group) </strong></span>The Lorentz group <span class="math inline">\(\mathcal L\)</span> is the subgroup of <span class="math inline">\(\mathrm{GL}(4, \mathbb R)\)</span> (group of
+invertible linear transformations on <span class="math inline">\(\mathbb R^4\)</span>) which preserve the Minkowski metric
+<span class="math display">\[
+        A\in \mathcal L\iff \forall x, y\in \mathbb R^4, \langle x, y\rangle_M = \langle Ax, Ay\rangle
+        \iff \forall x\in \mathbb R^4, \|x\|^2_M = \|Ax\|^2_M
+    \]</span></p>
+</div>
+<p>Recall that inverse-conjugating any matrix <span class="math inline">\(A\mapsto BAB^{-1}\)</span>
+will not change the eigenvalues of <span class="math inline">\(A\)</span>. In particular, inverse-conjugating
+<span class="math inline">\(\hat x\in \mathcal H_2\)</span> by any <span class="math inline">\(2\times 2\)</span> invertible matrix yields
+another element of <span class="math inline">\(\mathcal H_2\)</span>; since <span class="math inline">\(\mathcal H_2\)</span> represent
+points in spacetime, it is natural to ask the
+<span class="math inline">\(H\mapsto BHB^{-1}\)</span> induces on <span class="math inline">\(\mathbb R^4\)</span>.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-37" class="theorem"><strong>Theorem 5.1  (conjugation-induced linear transform) </strong></span>conjugation in <span class="math inline">\(\mathcal H_2\)</span> yields a linear transformation in <span class="math inline">\(\mathbb R^4\)</span>:
+Equivalently,
+the map <span class="math inline">\(A:\mathbb R^4\to \mathbb R^4\)</span> which makes the diagram
+below commute is a linear operator.</p>
+<p><img src="images/LorentzRepresentation.png" width="370" style="display: block; margin: auto;" /></p>
+</div>
+<p><em>Proof</em>: Fixing <span class="math inline">\(\hat A:\mathcal C^2\to \mathcal C^2\)</span> and let <span class="math inline">\(x, y\in \mathbb R^4\)</span>.
+Let <span class="math inline">\(\sigma_i\)</span> be any Pauli basis matrix, we show that <span class="math inline">\(A\)</span> is linear:
+<span class="math display">\[\begin{align}
+    \left[A(x+\alpha y)\right]_i &amp;=
+    \langle\hat A(\hat x + \alpha \hat y)\hat A^\dagger, \sigma_i\rangle
+    = \dfrac 1 2 \mathrm{tr}\left(\hat A (\hat x + \alpha \hat y)\hat A^\dagger\sigma_i \right) \\
+    &amp;= \dfrac 1 2 \mathrm{tr}\left(\hat A \hat x \hat A^\dagger\sigma_i \right)  +
+        \dfrac 1 2 \alpha \mathrm{tr}\left(\hat A \hat x \hat A^\dagger\sigma_i \right)
+    = (Ax)_i + \alpha(Ay)_i
+\end{align}\]</span>
+In particular, the representation of <span class="math inline">\(\hat A\)</span> as a matrix in <span class="math inline">\(\mathbb R^4\)</span> is
+<span class="math display">\[
+    A_{ij} = (Ae_j)_i = \langle\hat A \sigma_j \hat A^\dagger, \sigma_i \rangle
+    = \dfrac 1 2 \mathrm{tr}\left(\hat A \sigma_j \hat A^\dagger\sigma_i\right)
+\]</span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hamiltonian-mechanics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

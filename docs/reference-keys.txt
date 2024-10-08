@@ -47,7 +47,16 @@ prp:unlabeled-div-28
 prp:unlabeled-div-29
 def:unlabeled-div-30
 thm:unlabeled-div-31
+prp:unlabeled-div-33
+def:hilberSchmidt
+prp:unlabeled-div-34
+def:spacetimeRepresentation
+def:minkowski
+prp:unlabeled-div-35
+def:unlabeled-div-36
+thm:unlabeled-div-37
 two-body-problem
 lagranges-equations
 noethers-theorem
 hamiltonian-mechanics
+spacetime-geometry

@@ -6,14 +6,17 @@ In this section we develop two perspectives on Lagrange's equations:
 2. Equation of the trajectory satisfying the principle of least action. 
 
 We note in the subfinal section that the two perspectives are related: 
+<span style="color:green">
 the Euler-Lagrange vector $\mbb L_q$ is (negative) the representing 
-element of the directional derivative map $\eta \mapsto (D_\eta \mca S)(q)$, 
-which is a linear functional. 
+element of the directional derivative map 
+$\eta \mapsto (D_\eta \mca S)(q)$, which is a linear functional 
+in the endpoint-preserving perturbation $\eta$. 
+</span>
 
 Both perspectives are extremely important to the 
 development of modern theoretical physics. 
 Computationally, make sure to understand lemma \@ref(lem:calcVariation), 
-which also appears in the proof of Noether's theorem. 
+which appears again in the proof of Noether's theorem. 
 
 ## Covariant formulation {-}
 
