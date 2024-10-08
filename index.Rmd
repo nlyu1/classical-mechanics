@@ -38,17 +38,14 @@ link-citations: true
 
 
 # Preface {-}
-These notes accompany the Fall 2024 
-iteration of Arthur Jaffe's _Mechanics_ course at 
-Harvard (Physics, 151). 
 
 
 ## Introduction to the course {-}
 
-For mathematics concentrators, at some point 
+For math concentrators, at some point 
 (late into high school or in college) there is a 
 change of perspective from _computation_ to _proof_-based math. 
-One stops viewing matrices as large blobs of numbers but 
+For example, one stops viewing matrices as large blobs of numbers but 
 as coordinate representations of abstract linear transformations. 
 
 There is a similar shift in perspective in physics, when
@@ -64,12 +61,16 @@ classical treatment of symmetry and conservation
 will help motivate much of quantum theory's constructions. 
 
 ## Using these notes {-}
-These notes summarize and, occasionally, 
-supplement Prof. Jaffe's lecture notes on canvas. 
-They are meant as a concise reminder of the main 
-results in lecture. 
 
-The main deliverables of these notes are: 
+These notes accompany the Fall 2024 
+iteration of Arthur Jaffe's _Mechanics_ course at 
+Harvard (Physics 151). 
+They recount main results and, occasionally, 
+supplement Prof. Jaffe's lecture notes on canvas. 
+It can serve as a concise reminder of the results 
+in lecture. 
+
+The main deliverables are: 
 
 1. Covariant and extremal-action perspectives on Lagrangian mechanics. 
 2. Connection between Lagrangian and Hamiltonian mechanics 
