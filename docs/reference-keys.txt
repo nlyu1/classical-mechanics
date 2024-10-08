@@ -38,7 +38,7 @@ lem:calcVariation1
 def:unlabeled-div-22
 prp:unlabeled-div-23
 thm:noether
-prp:unlabeled-div-24
+exm:unlabeled-div-24
 def:unlabeled-div-25
 prp:unlabeled-div-26
 lem:legendreConjugateRelation

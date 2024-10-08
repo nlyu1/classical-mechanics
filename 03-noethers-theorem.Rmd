@@ -103,7 +103,7 @@ the $\mbb L_q$ term vanishes on the classical trajectory
 \end{align}
 This implies that the time-derivative of the Noether charge is $0$. 
 
-:::{.proposition name="conservation of energy"}
+:::{.example name="the Hamiltonian"}
 Let $\mca L$ be independent of time and denote the 
 time-translation transform 
 \[ 

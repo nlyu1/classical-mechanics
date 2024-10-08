@@ -204,7 +204,7 @@ Suppose for contradiction that <span class="math inline">\(\nabla f(x) = \nabla 
 substituting <span class="math inline">\(\nabla f(y)=\nabla f(x)\)</span> in the last equation and
 multiplying both sides by <span class="math inline">\(-1\)</span> yields the contradiction
 <span class="math display">\[
-    \nabla f(x) (y-x) &gt; f(y) - f(x)
+    \nabla f(x)\cdot (y-x) &gt; f(y) - f(x)
 \]</span></p>
 </div>
 <div id="properties-of-the-legendre-transform" class="section level3 unnumbered hasAnchor">
@@ -359,20 +359,22 @@ and coordinate equation
 a basis), a <strong>vector field</strong> <span class="math inline">\(X\)</span> can be understood as a <em>directional derivative</em>
 operation that consumes a scalar function <span class="math inline">\(f\)</span> and outputs <span class="math inline">\(X\, f\)</span> (read as
 <span class="math inline">\(X\)</span> acting on <span class="math inline">\(f\)</span>. The value of <span class="math inline">\((X\, f)(x)\)</span> encodes how much <span class="math inline">\(f\)</span>
-changes along the direction of <span class="math inline">\(X\)</span> at location <span class="math inline">\(x\)</span>.
+changes along the direction of the vector field <span class="math inline">\(X\)</span> at location <span class="math inline">\(x\)</span>.
 The representation of <span class="math inline">\(X\)</span> in this chart <span class="math inline">\(x\)</span> is then
 <span class="math display">\[
     X = \sum_{j=1}^n X_j \partial_{j}
 \]</span>
-where each <span class="math inline">\(X_j\)</span> is a scalar function; in this representation, the
-action can be easily understood as
+where each <span class="math inline">\(X_j\)</span> is a scalar function and <span class="math inline">\(\partial_{j} = \partial_{x_j}\)</span>
+denotes the partial differentiation operation in the <span class="math inline">\(j\)</span>-th variable;
+in this representation, the action of <span class="math inline">\(X\)</span> can be locally written
+in coordinate form as
 <span class="math display">\[
     (X\, f)(x) = \sum_{j=1}^n X_j \partial_{j} f(x) = (X_j)\cdot \nabla f(x)
 \]</span>
-where <span class="math inline">\((X_j)\)</span> is understood as a vector denoting the ``direction’’;
+Here <span class="math inline">\((X_j)\)</span> is understood as a vector denoting the “direction”;
 in this sense the chart <span class="math inline">\(x\)</span> also fixes a basis <span class="math inline">\(\partial_{1}, \cdots \partial_{n}\)</span>
 for the space of vector fields (tangent bundle).
-Given a scalar function <span class="math inline">\(f\)</span>, its <strong>differential</strong> <span class="math inline">\(df\)</span> eats a vector
+Given a scalar function <span class="math inline">\(f\)</span>, its <strong>differential</strong> <span class="math inline">\(df\)</span> consumes a vector
 field and outputs a scalar (function)
 <span class="math display">\[
     df\, X = X\, f
@@ -385,18 +387,17 @@ We can similarly consider a basis representation for the differentials
 The last piece we need is <strong>the wedge product</strong>: assuming a basis
 <span class="math inline">\(B=\{\partial_{p}, \partial_{q}\}\)</span> (<span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> are univariables), the symplectic form
 <span class="math inline">\(\omega = dq \wedge dp\)</span> consumes two arguments in <span class="math inline">\(B\)</span> and outputs a number
-subject to the following rules:
+subject to the following rules, in addition to being linear in all its arguments:
 <span class="math display">\[
     (dq \wedge dp)(\partial_{a}, \partial_{b}) = \begin{cases}
         1 &amp; (\partial_{a}, \partial_{b}) = \partial_{q}, \partial_{p} \\
         -1 &amp; (\partial_{a}, \partial_{b}) = \partial_{p}, \partial_{q} \\
         0 &amp; \text{otherwise}.
     \end{cases}
-\]</span>
-and being linear in each of its arguments.</p>
+\]</span></p>
 Back to Hamilton’s equation <span class="math inline">\(\omega(X_H, \cdot) = dH\)</span>.
 Fix the basis <span class="math inline">\(\{\partial_{q}, \partial_{p}\}\)</span> (the order matters!)
-and consider two vector fields
+and consider two vector fields <span class="math inline">\(X, Y\)</span> with components
 <span class="math display">\[
     X = X_q \partial_{q} + X_p \partial_{p}, \quad Y = Y_q \partial_{q} + Y_p \partial_{p}
 \]</span>
@@ -415,17 +416,20 @@ The representation <span class="math inline">\(\Gamma\)</span> of <span class="m
         0 &amp; 1 \\ -1 &amp; 0
     \end{pmatrix}
 \end{align}\]</span>
-The implicit equation expands out to
+The implicit equation holds for all vector fields <span class="math inline">\(Y\)</span>
+(since both sides of the equation consume a vector field and outputs a scalar function)
 <span class="math display">\[
     \omega (X_H, Y) = dH\, Y = Y\, H \implies (X_H)^T \Gamma Y
     = Y_q \partial_{q} H + Y_p \partial_{p} H = (\nabla H)^T Y, \quad \forall Y
 \]</span>
 where we have identified <span class="math inline">\(X_H, Y\)</span> with their <span class="math inline">\(\partial_{q}, \partial_{p}\)</span> coordinate
-representations on the RHS. The previous equation implies
+representations on the RHS. Solving for <span class="math inline">\(X_H\)</span> yields
 <span class="math display">\[
     (X_H)^T \Gamma = (\nabla H)^T \iff \nabla H = ((X_H)^T \Gamma)^T
     = -\Gamma X_H \iff X_H = \Gamma \nabla_H
 \]</span>
+This is exactly the component expression of Hamilton’s equations
+we have derived.
 </details>
 </div>
 <div id="the-poisson-bracket" class="section level2 unnumbered hasAnchor">

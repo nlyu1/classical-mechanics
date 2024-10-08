@@ -1,9 +1,4 @@
 # Two-body problem
-Corrections: 
-
-1. Lecture notes missing \\vec on $F_2$ before section 2.
-2. $\dot {\vec r}$ mis-typed after eq 28 in "angular momentum". 
-
 We approach the two-body problem in the following steps: 
 
 1. Reduce to one-body motion. 
