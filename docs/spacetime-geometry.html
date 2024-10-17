@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-08" />
+<meta name="date" content="2024-10-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -114,7 +114,8 @@
 <li class="chapter" data-level="5" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html"><i class="fa fa-check"></i><b>5</b> Spacetime geometry</a>
 <ul>
 <li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#matrix-representation-of-spacetime"><i class="fa fa-check"></i>Matrix representation of spacetime</a></li>
-<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#lorentz-group"><i class="fa fa-check"></i>Lorentz group</a></li>
+<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#the-lorentz-group"><i class="fa fa-check"></i>The Lorentz group</a></li>
+<li class="chapter" data-level="" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html#boosts-and-rotations"><i class="fa fa-check"></i>Boosts and rotations</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i>Bibliography</a></li>
 </ul>
@@ -140,24 +141,49 @@
 show that the algebra is neatly represented by <span class="math inline">\(2\times 2\)</span> complex matrices.</p>
 <p>Key takeaways:</p>
 <ol style="list-style-type: decimal">
-<li>Under the Hermitian-matrix representation of
-spacetime <a href="spacetime-geometry.html#def:spacetimeRepresentation">5.2</a>, determinant correspond to the
-Minkowski norm. Rotations are represented by unitary conjugation, while
-Lorentz boosts are represented by Hermitian conjugation.</li>
+<li>The Pauli matrices form a basis for
+<span class="math inline">\(2\times 2\)</span> complex Hermitian matrices (proposition <a href="spacetime-geometry.html#prp:pauliProperties">5.2</a>).</li>
+<li>Representation of <span class="math inline">\((3+1)\)</span>-spacetime using
+Hermitian-matrixs (definition <a href="spacetime-geometry.html#def:spacetimeRepresentation">5.2</a>).</li>
+<li>In this representation, determinant (of the <span class="math inline">\(2\times 2\)</span> Hermitian matrix)
+correspond to the Minkowski norm in <span class="math inline">\(\mathbb R^4\)</span>
+(proposition <a href="spacetime-geometry.html#prp:minkowskiMetricDet">5.3</a>).</li>
+<li>Conjugation in the representation corresponds to a linear transformation
+in spacetime (theorem <a href="spacetime-geometry.html#thm:conjugateTransform">5.1</a>).</li>
+<li>We are interested in the Lorentz group (definition <a href="spacetime-geometry.html#def:lorentzGroup">5.4</a>)
+which preserve the Minkowski norm. Such (linear) Lorentz transforms
+are represented the conjugate action of <span class="math inline">\(\mathrm{SL}(2, \mathbb C)\)</span>, or
+<span class="math inline">\(2\times 2\)</span> complex matrices with determinant 1
+(proposition <a href="spacetime-geometry.html#prp:lorentzCondition">5.4</a>).
+<ul>
+<li>Rotations are represented by unitary conjugation <span class="math inline">\(SU(2)\)</span>
+(theorem <a href="spacetime-geometry.html#thm:unitariesRotation">5.2</a>).</li>
+<li>Lorentz boosts are represented by Hermitian conjugation
+<span class="math inline">\(\mathcal H_2\cap \mathrm{SL}(2)\)</span>
+(theorem <a href="spacetime-geometry.html#thm:hermitianBoost">5.3</a>).</li>
+</ul></li>
+<li></li>
 </ol>
 <p>In this section, we work with <span class="math inline">\(2\times 2\)</span> complex matrices.
-Recall that a linear operator <span class="math inline">\(A\)</span> is</p>
+Some terminology for reference:</p>
 <ol style="list-style-type: decimal">
-<li>Hermitian (self-adjoint) if <span class="math inline">\(A^\dagger= A\)</span>, where <span class="math inline">\(A^\dagger\)</span> is the conjugate transpose.</li>
-<li>Unitary if <span class="math inline">\(AA^\dagger= A^\dagger A = \mathbf 1\)</span>.</li>
+<li><span class="math inline">\(\mathrm{GL}(2, \mathbb C)\)</span> denotes the set of <span class="math inline">\(2\times 2\)</span> complex invertible
+matrices.</li>
+<li><span class="math inline">\(\mathrm{SL}(2, \mathbb C)\subsetneq \mathrm{SL}(2, \mathbb C)\)</span> denotes the set
+of <span class="math inline">\(2\times 2\)</span> matrices with <span class="math inline">\(\det A=1\)</span>.</li>
+<li><span class="math inline">\(U(2)\)</span> denotes the set of <span class="math inline">\(2\times 2\)</span> unitary matrices
+satisfying <span class="math inline">\(AA^\dagger= A^\dagger A = \mathbf 1\)</span>.
+The intersection <span class="math inline">\(U(2)\cap \mathrm{SL}(2, \mathbb C)\)</span> is denoted <span class="math inline">\(SU(2)\)</span>,
+or the special unitary group.</li>
+<li><span class="math inline">\(\mathcal H_2\)</span> denotes the set of <span class="math inline">\(2\times 2\)</span> Hermitian matrices
+satisfying <span class="math inline">\(A^\dagger= A\)</span>, where <span class="math inline">\(A^\dagger\)</span> is the conjugate transpose.</li>
 </ol>
-<p>Let <span class="math inline">\(\mathcal H_2\)</span> denote the set of <span class="math inline">\(2\times 2\)</span> Hermitian matrices and <span class="math inline">\(U(2)\)</span>
-denote the set of <span class="math inline">\(2\times 2\)</span> unitary matrices.</p>
 <div id="matrix-representation-of-spacetime" class="section level2 unnumbered hasAnchor">
 <h2>Matrix representation of spacetime<a href="spacetime-geometry.html#matrix-representation-of-spacetime" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In this section, we define a representation of spacetime
-via a bijection between <span class="math inline">\(\mathbb R^4\)</span> and <span class="math inline">\(\mathcal H_2\)</span> <a href="spacetime-geometry.html#def:spacetimeRepresentation">5.2</a>;
-we also introduce the Minkowski metric <a href="spacetime-geometry.html#def:minkowski">5.3</a>.
+via a bijection between <span class="math inline">\(\mathbb R^4\)</span> and <span class="math inline">\(\mathcal H_2\)</span>
+(definition <a href="spacetime-geometry.html#def:spacetimeRepresentation">5.2</a>) and
+introduce the Minkowski metric <a href="spacetime-geometry.html#def:minkowski">5.3</a>.
 the space <span class="math inline">\(\mathbb R^4\cong \mathbb R\times \mathbb R^3\)</span> will be
 understood as <span class="math inline">\(4\)</span>-dimensional spacetime.</p>
 <p>Both unitary matrices and Hermitian matrices are <em>normal</em> thus subject to
@@ -191,7 +217,7 @@ In a basis representation, this corresponds to the flattened vector inner produc
 </div>
 <p>The Pauli matrices are special because they form an orthonormal basis for <span class="math inline">\(\mathcal H_2\)</span>:</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-34" class="proposition"><strong>Proposition 5.2  </strong></span>The Pauli matrices are involutary <span class="math inline">\(\sigma_i^2 = \mathbf 1\)</span> and
+<p><span id="prp:pauliProperties" class="proposition"><strong>Proposition 5.2  </strong></span>The Pauli matrices are involutary <span class="math inline">\(\sigma_i^2 = \mathbf 1\)</span> and
 form an orthonormal basis for <span class="math inline">\(\mathcal H_2\)</span> under the Hilbert-Schmidt
 inner product.</p>
 </div>
@@ -209,7 +235,7 @@ with <span class="math inline">\(2\times 2\)</span> Hermitian matrices
         \end{bmatrix}\in \mathcal H_2
     \]</span>
 The representation is invertible by Fourier
-decomposition onto the Pauli basis by <a href="spacetime-geometry.html#def:hilberSchmidt">5.1</a>:
+decomposition onto the Pauli basis using <a href="spacetime-geometry.html#def:hilberSchmidt">5.1</a>:
 <span class="math display">\[
         x_t = \langle\hat x, \mathbf 1\rangle= \dfrac 1 2 \mathrm{tr}(\hat x\mathbf 1), \quad
         x_{i\in \{1, 2, 3\}} = \langle\hat x, \sigma_i\rangle= \dfrac 1 2 \mathrm{tr}(\hat x\sigma_i)
@@ -227,19 +253,19 @@ defined by <span class="math inline">\(\|x\|_M^2 = \langle x, x\rangle_M\)</span
 <p>One purpose of the
 definition <a href="spacetime-geometry.html#def:spacetimeRepresentation">5.2</a> is the following</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-35" class="proposition"><strong>Proposition 5.3  </strong></span>Under the Pauli identification of <span class="math inline">\(\mathbb R^4\)</span>
+<p><span id="prp:minkowskiMetricDet" class="proposition"><strong>Proposition 5.3  </strong></span>Under the Pauli identification of <span class="math inline">\(\mathbb R^4\)</span>
 <span class="math display">\[
         \det \hat x = \langle x, x\rangle_M
-    \]</span>
-Direct computation: <span class="math inline">\(\det \hat x = x_t^2 - x_1^2 - x_2^2 - x_3^2\)</span>.</p>
+    \]</span></p>
 </div>
+<p><em>Proof:</em> Direct computation: <span class="math inline">\(\det \hat x = x_t^2 - x_1^2 - x_2^2 - x_3^2\)</span>.</p>
 </div>
-<div id="lorentz-group" class="section level2 unnumbered hasAnchor">
-<h2>Lorentz group<a href="spacetime-geometry.html#lorentz-group" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-lorentz-group" class="section level2 unnumbered hasAnchor">
+<h2>The Lorentz group<a href="spacetime-geometry.html#the-lorentz-group" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We wish to investigate linear transformations on <span class="math inline">\(\mathbb R^4\)</span> which leave the Minkowski
 metric invariant, since these transformations form the Lorentz group.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-36" class="definition"><strong>Definition 5.4  (Lorentz group) </strong></span>The Lorentz group <span class="math inline">\(\mathcal L\)</span> is the subgroup of <span class="math inline">\(\mathrm{GL}(4, \mathbb R)\)</span> (group of
+<p><span id="def:lorentzGroup" class="definition"><strong>Definition 5.4  (Lorentz group) </strong></span>The Lorentz group <span class="math inline">\(\mathcal L\)</span> is the subgroup of <span class="math inline">\(\mathrm{GL}(4, \mathbb R)\)</span> (group of
 invertible linear transformations on <span class="math inline">\(\mathbb R^4\)</span>) which preserve the Minkowski metric
 <span class="math display">\[
         A\in \mathcal L\iff \forall x, y\in \mathbb R^4, \langle x, y\rangle_M = \langle Ax, Ay\rangle
@@ -253,11 +279,17 @@ another element of <span class="math inline">\(\mathcal H_2\)</span>; since <spa
 points in spacetime, it is natural to ask the
 <span class="math inline">\(H\mapsto BHB^{-1}\)</span> induces on <span class="math inline">\(\mathbb R^4\)</span>.</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-37" class="theorem"><strong>Theorem 5.1  (conjugation-induced linear transform) </strong></span>conjugation in <span class="math inline">\(\mathcal H_2\)</span> yields a linear transformation in <span class="math inline">\(\mathbb R^4\)</span>:
+<p><span id="thm:conjugateTransform" class="theorem"><strong>Theorem 5.1  (conjugation-induced linear transform) </strong></span>conjugation in <span class="math inline">\(\mathcal H_2\)</span> yields a linear transformation in <span class="math inline">\(\mathbb R^4\)</span>:
 Equivalently,
 the map <span class="math inline">\(A:\mathbb R^4\to \mathbb R^4\)</span> which makes the diagram
 below commute is a linear operator.</p>
-<p><img src="images/LorentzRepresentation.png" width="370" style="display: block; margin: auto;" /></p>
+<p><img src="images/LorentzRepresentation.png" width="370" style="display: block; margin: auto;" />
+In particular, the representation of <span class="math inline">\(\hat A\)</span> as a matrix in <span class="math inline">\(\mathbb R^4\)</span> is
+<span class="math display" id="eq:conjugationRepresentation">\[
+        A_{ij} = (Ae_j)_i = \langle\hat A \sigma_j \hat A^\dagger, \sigma_i \rangle
+        = \dfrac 1 2 \mathrm{tr}\left(\hat A \sigma_j \hat A^\dagger\sigma_i\right)
+        \tag{5.1}
+    \]</span></p>
 </div>
 <p><em>Proof</em>: Fixing <span class="math inline">\(\hat A:\mathcal C^2\to \mathcal C^2\)</span> and let <span class="math inline">\(x, y\in \mathbb R^4\)</span>.
 Let <span class="math inline">\(\sigma_i\)</span> be any Pauli basis matrix, we show that <span class="math inline">\(A\)</span> is linear:
@@ -268,12 +300,111 @@ Let <span class="math inline">\(\sigma_i\)</span> be any Pauli basis matrix, we 
     &amp;= \dfrac 1 2 \mathrm{tr}\left(\hat A \hat x \hat A^\dagger\sigma_i \right)  +
         \dfrac 1 2 \alpha \mathrm{tr}\left(\hat A \hat x \hat A^\dagger\sigma_i \right)
     = (Ax)_i + \alpha(Ay)_i
-\end{align}\]</span>
-In particular, the representation of <span class="math inline">\(\hat A\)</span> as a matrix in <span class="math inline">\(\mathbb R^4\)</span> is
+\end{align}\]</span></p>
+<p>We are interested in the Lorentz group, i.e. induced transformations <span class="math inline">\(A:\mathbb R^4\to \mathbb R^4\)</span> which
+preserve the Minkowski metric.
+The relation between Minkowski norm and determinant of the Pauli identification in
+proposition <a href="spacetime-geometry.html#prp:minkowskiMetricDet">5.3</a> gives a convenient characterization.</p>
+<div class="proposition">
+<p><span id="prp:lorentzCondition" class="proposition"><strong>Proposition 5.4  </strong></span>Conjugation by <span class="math inline">\(\hat A:\mathbb C^2\to \mathbb C^2\)</span> induce a Lorentz transformation only if
 <span class="math display">\[
-    A_{ij} = (Ae_j)_i = \langle\hat A \sigma_j \hat A^\dagger, \sigma_i \rangle
-    = \dfrac 1 2 \mathrm{tr}\left(\hat A \sigma_j \hat A^\dagger\sigma_i\right)
-\]</span></p>
+        \det \hat A = \pm 1
+    \]</span>
+Moreover, <span class="math inline">\(\hat A\)</span> induces the same transformation as <span class="math inline">\(-\hat A\)</span>,
+so without of loss of generality we can take <span class="math inline">\(\det \hat A = 1\)</span>.</p>
+</div>
+<p><em>Proof</em>: Use proposition <a href="spacetime-geometry.html#prp:minkowskiMetricDet">5.3</a>:
+<span class="math inline">\(\|Ax\|^2_M = \det(\hat A\hat x\hat A^\dagger)
+    = \det \hat x (\det A)^2 = (\det A)^2 \|x\|^2_M\)</span></p>
+<p>Within <span class="math inline">\(\mathrm{SL}(2, \mathbb C)\)</span>, the special unitary group <span class="math inline">\(\mathrm{SU}(2)\)</span> consisting of <span class="math inline">\(2\times 2\)</span>
+unitaries and the unit-determinant Hermitians <span class="math inline">\(\mathcal H_2\cap \mathrm{SL}(2, \mathbb C)\)</span> are special:
+every <span class="math inline">\(A\in \mathrm{SL}(2, \mathbb C)\)</span> may be decomposed into a unique product of
+<span class="math inline">\(U\in \mathrm{SU}(2)\)</span> and <span class="math inline">\(H\in \mathcal H_2\cap \mathrm{SL}(2, \mathbb C)\)</span>.</p>
+</div>
+<div id="boosts-and-rotations" class="section level2 unnumbered hasAnchor">
+<h2>Boosts and rotations<a href="spacetime-geometry.html#boosts-and-rotations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We explore <span class="math inline">\(\mathbb R^4\)</span> transforms induced by the unitaries and unit-determinant Hermitians,
+beginning with the unitaries. Recall that every unitary <span class="math inline">\(U=\exp(iH)\)</span> for some Hermitian <span class="math inline">\(H\)</span>.
+Since the Paulis form a basis, every unitary <span class="math inline">\(U\)</span> may be written uniquely as
+<span class="math display">\[
+    U=\exp\left[i(x_t \mathbf 1 + x_1\sigma_x + x_2\sigma_y + x_3\sigma_z)\right] =
+    \exp\left[ix_t + i(x_1\sigma_x + x_2\sigma_y + x_3\sigma_z)\right]
+\]</span>
+Inspecting equation <a href="spacetime-geometry.html#eq:conjugationRepresentation">(5.1)</a> shows that the induced transformation is
+invariant in <span class="math inline">\(x_t\)</span>, and, in fact, an overall scaling of <span class="math inline">\((x_1, x_2, x_3)\)</span>. Without loss of
+generality we consider unitaries of the form <span class="math inline">\(U=\exp(i(\hat r\cdot \sigma))\)</span>, for <span class="math inline">\(r\in S^2\)</span>,
+the unit <span class="math inline">\(2\)</span>-sphere in <span class="math inline">\(\mathbb R^3\)</span>.</p>
+<div class="theorem">
+<p><span id="thm:unitariesRotation" class="theorem"><strong>Theorem 5.2  (unitaries induce spatial rotations) </strong></span>A clockwise rotation <span class="math inline">\(A\)</span> in the last three spatial coordinates about <span class="math inline">\(\hat r\in S^2\)</span> by <span class="math inline">\(\theta\)</span>
+is induced via equation <a href="spacetime-geometry.html#eq:conjugationRepresentation">(5.1)</a> by
+<span class="math display">\[
+        U(\hat r, \theta) =
+        \exp\left[-\dfrac i 2 \theta (\hat r\cdot \vec \sigma)\right] \in \mathrm{SU}(2)
+    \]</span></p>
+<p><em>Proof:</em> All conjugation fixes the time axis since <span class="math inline">\(\mathbf 1\)</span> commutes
+with everything so <span class="math inline">\(U(x_t\mathbf 1)U^\dagger= x_t\mathbf 1\)</span>.
+The only Minkowski-norm preserving isometries of <span class="math inline">\(\mathbb R^4\)</span> which fix time
+are the spatial rotations. The direct form follows by direct computation or
+noting the identification with quaterions. We do one example here, let
+<span class="math display">\[
+        \hat r = (0, 0, 1), \quad \hat R_z(\theta) = \exp\left(-\dfrac i 2 \theta\sigma_z\right)
+        \implies R_z(\theta)_{ij} = \dfrac 1 2 \mathrm{tr}\left(\hat R_z(\theta)\sigma_j
+        \hat R_z(-\theta)\sigma_i \right)
+    \]</span>
+If <span class="math inline">\(j=3\)</span> (corresponding to spatial <span class="math inline">\(z\)</span>) or <span class="math inline">\(j=0\)</span> (time),
+<span class="math inline">\(\sigma_j\)</span> commutes with <span class="math inline">\(\hat R_z(\theta)\)</span> so
+<span class="math display">\[
+        R_z(\theta)_{ij\notin\{0, 3\}}=\delta_{ij}
+    \]</span>
+This implies that <span class="math inline">\(R_z(\theta)\)</span> acts trivially on the time and <span class="math inline">\(z\)</span>-axes.
+Next, let us consider the subspaces spanned by <span class="math inline">\(\sigma_1, \sigma_2\)</span>. Recall that
+<span class="math inline">\([\sigma_3, \sigma_1] = -[\sigma_1, \sigma_3]\)</span>
+<span class="math display">\[\begin{align}
+        R_z(\theta)_{11}
+        &amp;= \dfrac 1 2 \mathrm{tr}\left(e^{-i\theta \sigma_3/2}\sigma_1 e^{i\theta \sigma_3/2}\sigma_1 \right) \\
+        &amp;= \dfrac 1 2 \mathrm{tr}\left(e^{-i\theta \sigma_3}\sigma_1\sigma_1 \right)
+        = \dfrac 1 2 \mathrm{tr}\left(e^{-i\theta \sigma_3}\right) \\
+        &amp;= \dfrac{e^{i\theta} + e^{-i\theta}} 2 = \cos\theta
+    \end{align}\]</span>
+The same applies to <span class="math inline">\(R_z(\theta)_{22}\)</span>
+Continuing the calculation and remembering the commutation relation
+<span class="math inline">\(\sigma_i\sigma_j = i\epsilon_{ijk}\sigma_k\)</span>
+<span class="math display">\[\begin{align}
+        R_z(\theta)_{12}
+        &amp;= \dfrac 1 2 \mathrm{tr}\left(e^{-i\theta \sigma_3/2}\sigma_1 e^{i\theta \sigma_3/2}\sigma_2 \right) \\
+        &amp;= \dfrac 1 2 \mathrm{tr}\left(e^{-i\theta \sigma_3}\sigma_1\sigma_2 \right)
+        = \dfrac 1 2 \mathrm{tr}\left(e^{-i\theta \sigma_3}i\sigma_3\right) \\
+        &amp;= \dfrac{ie^{i\theta} - ie^{-i\theta}} 2 = \dfrac{e^{-i\theta}-e^{i\theta}}{2i} = -\sin\theta
+    \end{align}\]</span>
+Then <span class="math inline">\(R_z(\theta)\)</span> restricted to the <span class="math inline">\(xy\)</span> plane is a spatial rotation:
+<span class="math display">\[
+        R_z(\theta)\big|_{xy} =
+        \begin{bmatrix}
+            \cos\theta &amp; -\sin\theta \\
+            \sin\theta &amp; \cos\theta
+        \end{bmatrix}
+    \]</span></p>
+</div>
+<p>We spend some time here to recall the hyperbolic functions.
+<span class="math display">\[\begin{align}
+    \cosh x &amp;= \sinh&#39;x = \dfrac{e^x + e^{-x}} 2 \\
+    \sinh x &amp;= \cosh&#39;x = \dfrac{e^x - e^{-x}} 2 \\
+    \sinh(x+y) &amp;= \sinh x \cosh y + \cosh x \sinh y \\
+    \cosh(x+y) &amp;= \cosh x \cosh y + \sinh x \sinh y \\
+    1 &amp;= \cosh^2 x - \sinh^2 x
+\end{align}\]</span></p>
+<div class="theorem">
+<p><span id="thm:hermitianBoost" class="theorem"><strong>Theorem 5.3  (special Hermitians induce Lorentz boosts) </strong></span>Given <span class="math inline">\(\hat r\in S^2, \chi\in \mathbb R\)</span>, the following Hermitian induces a Lorentz boost
+in the direction of <span class="math inline">\(\hat r\in S^2\)</span> by <span class="math inline">\(\chi\)</span>.
+<span class="math display">\[
+        H(\hat r, \chi) = \exp \left[-\dfrac 1 2 \chi (\hat r\cdot \sigma)\right]\in \mathcal H_2
+    \]</span></p>
+</div>
+<p><em>Proof:</em> explicit calculation.
+Given <span class="math inline">\(H(\hat r, \chi)\)</span>, compute the matrix elements of the linear transform of
+<span class="math inline">\(\mathbb R^4\)</span> it corresponds to using
+equation <a href="spacetime-geometry.html#eq:conjugationRepresentation">(5.1)</a>; this turns out to be the
+Lorentz boost.</p>
 
 </div>
 </div>

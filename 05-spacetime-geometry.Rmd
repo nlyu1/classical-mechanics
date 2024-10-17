@@ -5,25 +5,47 @@ show that the algebra is neatly represented by $2\times 2$ complex matrices.
 
 Key takeaways: 
 
-1. Under the Hermitian-matrix representation of 
-spacetime \@ref(def:spacetimeRepresentation), determinant correspond to the 
-Minkowski norm. Rotations are represented by unitary conjugation, while 
-Lorentz boosts are represented by Hermitian conjugation. 
+1. The Pauli matrices form a basis for 
+    $2\times 2$ complex Hermitian matrices (proposition \@ref(prp:pauliProperties)). 
+2. Representation of $(3+1)$-spacetime using 
+    Hermitian-matrixs (definition \@ref(def:spacetimeRepresentation)). 
+3. In this representation, determinant (of the $2\times 2$ Hermitian matrix)
+    correspond to the Minkowski norm in $\R^4$ 
+    (proposition \@ref(prp:minkowskiMetricDet)). 
+4. Conjugation in the representation corresponds to a linear transformation 
+    in spacetime (theorem \@ref(thm:conjugateTransform)). 
+5. We are interested in the Lorentz group (definition \@ref(def:lorentzGroup))
+    which preserve the Minkowski norm. Such (linear) Lorentz transforms 
+    are represented the conjugate action of $\mrm{SL}(2, \mbb C)$, or 
+    $2\times 2$ complex matrices with determinant 1
+    (proposition \@ref(prp:lorentzCondition)). 
+    - Rotations are represented by unitary conjugation $SU(2)$ 
+        (theorem \@ref(thm:unitariesRotation)). 
+    - Lorentz boosts are represented by Hermitian conjugation 
+        $\mca H_2\cap \mrm{SL}(2)$ 
+        (theorem \@ref(thm:hermitianBoost)). 
+7. 
 
 In this section, we work with $2\times 2$ complex matrices. 
-Recall that a linear operator $A$ is 
+Some terminology for reference:
 
-1. Hermitian (self-adjoint) if $A^\dag = A$, where $A^\dag$ is the conjugate transpose. 
-2. Unitary if $AA^\dag = A^\dag A = \mbf 1$. 
-
-Let $\mca H_2$ denote the set of $2\times 2$ Hermitian matrices and $U(2)$ 
-denote the set of $2\times 2$ unitary matrices.
+1. $\mrm{GL}(2, \mbb C)$ denotes the set of $2\times 2$ complex invertible 
+    matrices. 
+2. $\mrm{SL}(2, \mbb C)\subsetneq \mrm{SL}(2, \mbb C)$ denotes the set 
+    of $2\times 2$ matrices with $\det A=1$. 
+3. $U(2)$ denotes the set of $2\times 2$ unitary matrices 
+    satisfying $AA^\dag = A^\dag A = \mbf 1$. 
+    The intersection $U(2)\cap \mrm{SL}(2, \mbb C)$ is denoted $SU(2)$, 
+    or the special unitary group. 
+3. $\mca H_2$ denotes the set of $2\times 2$ Hermitian matrices 
+    satisfying $A^\dag = A$, where $A^\dag$ is the conjugate transpose. 
 
 ## Matrix representation of spacetime {-}
 
 In this section, we define a representation of spacetime 
-via a bijection between $\mbb R^4$ and $\mca H_2$ \@ref(def:spacetimeRepresentation); 
-we also introduce the Minkowski metric \@ref(def:minkowski). 
+via a bijection between $\mbb R^4$ and $\mca H_2$ 
+(definition \@ref(def:spacetimeRepresentation)) and 
+introduce the Minkowski metric \@ref(def:minkowski). 
 the space $\mbb R^4\cong \mbb R\times \mbb R^3$ will be 
 understood as $4$-dimensional spacetime. 
 
@@ -62,7 +84,7 @@ The Hilbert-Schmidt inner product defined on the space of linear operators
 
 The Pauli matrices are special because they form an orthonormal basis for $\mca H_2$: 
 
-:::{.proposition}
+:::{.proposition #pauliProperties}
 The Pauli matrices are involutary $\sigma_i^2 = \mbf 1$ and 
     form an orthonormal basis for $\mca H_2$ under the Hilbert-Schmidt 
     inner product. 
@@ -82,7 +104,7 @@ We identify points in $\R^4$
         \end{bmatrix}\in \mca H_2
     \] 
     The representation is invertible by Fourier 
-    decomposition onto the Pauli basis by \@ref(def:hilberSchmidt): 
+    decomposition onto the Pauli basis using \@ref(def:hilberSchmidt): 
     \[ 
         x_t = \la \hat x, \mbf 1\ra = \df 1 2 \mrm{tr}(\hat x\mbf 1), \quad 
         x_{i\in \{1, 2, 3\}} = \la \hat x, \sigma_i\ra = \df 1 2 \mrm{tr}(\hat x\sigma_i) 
@@ -102,21 +124,20 @@ The Minkowski metric over $\R^4$ is the bilinear map
 One purpose of the 
 definition \@ref(def:spacetimeRepresentation) is the following 
 
-:::{.proposition}
+:::{.proposition #minkowskiMetricDet}
 Under the Pauli identification of $\R^4$
-    \label{prop:det_metric}
     \[ 
         \det \hat x = \la x, x\ra_M 
     \] 
-    \prf Direct computation: $\det \hat x = x_t^2 - x_1^2 - x_2^2 - x_3^2$. 
 :::
+_Proof:_ Direct computation: $\det \hat x = x_t^2 - x_1^2 - x_2^2 - x_3^2$. 
 
-## Lorentz group {-}
+## The Lorentz group {-}
 
 We wish to investigate linear transformations on $\R^4$ which leave the Minkowski 
 metric invariant, since these transformations form the Lorentz group. 
 
-:::{.definition name="Lorentz group"}
+:::{.definition #lorentzGroup name="Lorentz group"}
 The Lorentz group $\mca L$ is the subgroup of $\mrm{GL}(4, \R)$ (group of 
     invertible linear transformations on $\R^4$) which preserve the Minkowski metric 
     \[ 
@@ -132,7 +153,7 @@ another element of $\mca H_2$; since $\mca H_2$ represent
 points in spacetime, it is natural to ask the 
 $H\mapsto BHB^{-1}$ induces on $\R^4$.
 
-:::{.theorem name="conjugation-induced linear transform"}
+:::{.theorem #conjugateTransform name="conjugation-induced linear transform"}
 conjugation in $\mca H_2$ yields a linear transformation in $\R^4$: 
     Equivalently, 
     the map $A:\R^4\to \R^4$ which makes the diagram 
@@ -141,6 +162,12 @@ conjugation in $\mca H_2$ yields a linear transformation in $\R^4$:
 ```{r echo=FALSE, fig.align='center'}
 knitr::include_graphics(rep("images/LorentzRepresentation.png", 1))
 ```
+In particular, the representation of $\hat A$ as a matrix in $\R^4$ is
+    \[ 
+        A_{ij} = (Ae_j)_i = \la \hat A \sigma_j \hat A^\dag, \sigma_i \ra 
+        = \df 1 2 \mrm{tr}\left(\hat A \sigma_j \hat A^\dag\sigma_i\right) 
+        (\#eq:conjugationRepresentation)
+    \] 
 :::
 _Proof_: Fixing $\hat A:\mca C^2\to \mca C^2$ and let $x, y\in \R^4$.
     Let $\sigma_i$ be any Pauli basis matrix, we show that $A$ is linear: 
@@ -152,8 +179,114 @@ _Proof_: Fixing $\hat A:\mca C^2\to \mca C^2$ and let $x, y\in \R^4$.
         \df 1 2 \alpha \mrm{tr}\left(\hat A \hat x \hat A^\dag \sigma_i \right) 
     = (Ax)_i + \alpha(Ay)_i 
 \end{align}
-In particular, the representation of $\hat A$ as a matrix in $\R^4$ is
+
+We are interested in the Lorentz group, i.e. induced transformations $A:\R^4\to \R^4$ which 
+preserve the Minkowski metric. 
+The relation between Minkowski norm and determinant of the Pauli identification in
+proposition \@ref(prp:minkowskiMetricDet) gives a convenient characterization. 
+
+:::{.proposition #lorentzCondition}
+Conjugation by $\hat A:\mbb C^2\to \mbb C^2$ induce a Lorentz transformation only if 
+    \[ 
+        \det \hat A = \pm 1
+    \] 
+    Moreover, $\hat A$ induces the same transformation as $-\hat A$, 
+        so without of loss of generality we can take $\det \hat A = 1$. 
+:::
+_Proof_: Use proposition \@ref(prp:minkowskiMetricDet): 
+$\|Ax\|^2_M = \det(\hat A\hat x\hat A^\dag) 
+    = \det \hat x (\det A)^2 = (\det A)^2 \|x\|^2_M$
+
+Within $\mrm{SL}(2, \mbb C)$, the special unitary group $\mrm{SU}(2)$ consisting of $2\times 2$ 
+unitaries and the unit-determinant Hermitians $\mca H_2\cap \mrm{SL}(2, \mbb C)$ are special: 
+every $A\in \mrm{SL}(2, \mbb C)$ may be decomposed into a unique product of 
+$U\in \mrm{SU}(2)$ and $H\in \mca H_2\cap \mrm{SL}(2, \mbb C)$. 
+
+## Boosts and rotations {-}
+
+We explore $\R^4$ transforms induced by the unitaries and unit-determinant Hermitians, 
+beginning with the unitaries. Recall that every unitary $U=\exp(iH)$ for some Hermitian $H$. 
+Since the Paulis form a basis, every unitary $U$ may be written uniquely as 
 \[ 
-    A_{ij} = (Ae_j)_i = \la \hat A \sigma_j \hat A^\dag, \sigma_i \ra 
-    = \df 1 2 \mrm{tr}\left(\hat A \sigma_j \hat A^\dag\sigma_i\right)
+    U=\exp\left[i(x_t \mbf 1 + x_1\sigma_x + x_2\sigma_y + x_3\sigma_z)\right] = 
+    \exp\left[ix_t + i(x_1\sigma_x + x_2\sigma_y + x_3\sigma_z)\right]
 \] 
+Inspecting equation \@ref(eq:conjugationRepresentation) shows that the induced transformation is 
+invariant in $x_t$, and, in fact, an overall scaling of $(x_1, x_2, x_3)$. Without loss of 
+generality we consider unitaries of the form $U=\exp(i(\hat r\cdot \sigma))$, for $r\in S^2$,
+the unit $2$-sphere in $\R^3$. 
+
+:::{.theorem #unitariesRotation name="unitaries induce spatial rotations"}
+ A clockwise rotation $A$ in the last three spatial coordinates about $\hat r\in S^2$ by $\theta$ 
+    is induced via equation \@ref(eq:conjugationRepresentation) by 
+    \[ 
+        U(\hat r, \theta) = 
+        \exp\left[-\df i 2 \theta (\hat r\cdot \vec \sigma)\right] \in \mrm{SU}(2)
+    \] 
+
+_Proof:_ All conjugation fixes the time axis since $\mbf 1$ commutes 
+    with everything so $U(x_t\mbf 1)U^\dag = x_t\mbf 1$. 
+    The only Minkowski-norm preserving isometries of $\R^4$ which fix time
+    are the spatial rotations. The direct form follows by direct computation or 
+    noting the identification with quaterions. We do one example here, let 
+    \[ 
+        \hat r = (0, 0, 1), \quad \hat R_z(\theta) = \exp\left(-\df i 2 \theta\sigma_z\right)
+        \implies R_z(\theta)_{ij} = \df 1 2 \mrm{tr}\left(\hat R_z(\theta)\sigma_j 
+        \hat R_z(-\theta)\sigma_i \right)
+    \] 
+    If $j=3$ (corresponding to spatial $z$) or $j=0$ (time), 
+    $\sigma_j$ commutes with $\hat R_z(\theta)$ so 
+    \[ 
+        R_z(\theta)_{ij\notin\{0, 3\}}=\delta_{ij}
+    \] 
+    This implies that $R_z(\theta)$ acts trivially on the time and $z$-axes. 
+    Next, let us consider the subspaces spanned by $\sigma_1, \sigma_2$. Recall that 
+    $[\sigma_3, \sigma_1] = -[\sigma_1, \sigma_3]$ 
+    \begin{align}
+        R_z(\theta)_{11} 
+        &= \df 1 2 \mrm{tr}\left(e^{-i\theta \sigma_3/2}\sigma_1 e^{i\theta \sigma_3/2}\sigma_1 \right) \\ 
+        &= \df 1 2 \mrm{tr}\left(e^{-i\theta \sigma_3}\sigma_1\sigma_1 \right) 
+        = \df 1 2 \mrm{tr}\left(e^{-i\theta \sigma_3}\right) \\ 
+        &= \df {e^{i\theta} + e^{-i\theta}} 2 = \cos\theta 
+    \end{align}
+    The same applies to $R_z(\theta)_{22}$
+    Continuing the calculation and remembering the commutation relation 
+    $\sigma_i\sigma_j = i\epsilon_{ijk}\sigma_k$ 
+    \begin{align}
+        R_z(\theta)_{12} 
+        &= \df 1 2 \mrm{tr}\left(e^{-i\theta \sigma_3/2}\sigma_1 e^{i\theta \sigma_3/2}\sigma_2 \right) \\ 
+        &= \df 1 2 \mrm{tr}\left(e^{-i\theta \sigma_3}\sigma_1\sigma_2 \right) 
+        = \df 1 2 \mrm{tr}\left(e^{-i\theta \sigma_3}i\sigma_3\right) \\ 
+        &= \df {ie^{i\theta} - ie^{-i\theta}} 2 = \df{e^{-i\theta}-e^{i\theta}}{2i} = -\sin\theta
+    \end{align}
+    Then $R_z(\theta)$ restricted to the $xy$ plane is a spatial rotation: 
+    \[ 
+        R_z(\theta)\big|_{xy} = 
+        \begin{bmatrix}
+            \cos\theta & -\sin\theta \\ 
+            \sin\theta & \cos\theta 
+        \end{bmatrix}
+    \] 
+:::
+
+We spend some time here to recall the hyperbolic functions. 
+\begin{align}
+    \cosh x &= \sinh'x = \df {e^x + e^{-x}} 2 \\ 
+    \sinh x &= \cosh'x = \df {e^x - e^{-x}} 2 \\ 
+    \sinh(x+y) &= \sinh x \cosh y + \cosh x \sinh y \\ 
+    \cosh(x+y) &= \cosh x \cosh y + \sinh x \sinh y \\ 
+    1 &= \cosh^2 x - \sinh^2 x 
+\end{align}
+
+:::{.theorem #hermitianBoost name="special Hermitians induce Lorentz boosts"}
+Given $\hat r\in S^2, \chi\in \R$, the following Hermitian induces a Lorentz boost 
+    in the direction of $\hat r\in S^2$ by $\chi$. 
+    \[ 
+        H(\hat r, \chi) = \exp \left[-\df 1 2 \chi (\hat r\cdot \sigma)\right]\in \mca H_2 
+    \] 
+:::
+_Proof:_ explicit calculation. 
+Given $H(\hat r, \chi)$, compute the matrix elements of the linear transform of 
+$\R^4$ it corresponds to using 
+equation \@ref(eq:conjugationRepresentation); this turns out to be the 
+Lorentz boost. 
