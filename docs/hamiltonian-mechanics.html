@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-15" />
+<meta name="date" content="2024-10-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -107,6 +107,7 @@
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#properties-of-the-legendre-transform"><i class="fa fa-check"></i>Properties of the Legendre transform</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#hamiltons-equations"><i class="fa fa-check"></i>Hamilton’s equations</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#differential-geometry-perspective"><i class="fa fa-check"></i>Differential geometry perspective</a></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#the-poisson-bracket"><i class="fa fa-check"></i>The Poisson bracket</a></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#liouvilles-theorem"><i class="fa fa-check"></i>Liouville’s theorem</a></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#optional-probability-on-phase-space"><i class="fa fa-check"></i>Optional: probability on phase space</a></li>
@@ -337,26 +338,28 @@ dependent upon <span class="math inline">\(q\)</span>, then
         &amp;= d_t \nabla_{\dot q}\mathcal L = \nabla_q \mathcal L
     \end{align}\]</span>
 the last equation holds by the Euler-Lagrange equations.</p>
+</div>
+<div id="differential-geometry-perspective" class="section level2 unnumbered hasAnchor">
+<h2>Differential geometry perspective<a href="hamiltonian-mechanics.html#differential-geometry-perspective" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div style="color:green">
-<div class="remark">
-<p><span id="unlabeled-div-32" class="remark"><em>Remark</em>. </span>For those interested in differential geometry,
-Hamilton’s equations <span class="math inline">\(\partial_{t} \xi = \Gamma \, \nabla_\xi H\)</span>
+<p>Hamilton’s equations <span class="math inline">\(\partial_{t} \xi = \Gamma \, \nabla_\xi H\)</span>
 is the component representation of the following implicit
 equation which defines the vector field <span class="math inline">\(X_H\)</span>
 <em>generating the time-translation of the system</em>:
 <span class="math display">\[
     \omega(X_H, \, \cdot\, ) = dH
 \]</span>
-Here <span class="math inline">\(\omega= dq \wedge dp\)</span> is the <em>symplectic form</em>
-represented by <span class="math inline">\(\Gamma\)</span>, and <span class="math inline">\(dH\)</span> is the differential of <span class="math inline">\(H\)</span>.</p>
+Here <span class="math inline">\(\omega= dq \wedge dp = \sum_j dq_j\wedge dp_j\)</span>
+is the <em>symplectic form</em> represented by <span class="math inline">\(\Gamma\)</span>, and <span class="math inline">\(dH\)</span>
+is the differential of <span class="math inline">\(H\)</span>.</p>
 </div>
-</div>
-<details>
-<summary>
-optional material: relation between implicit
-and coordinate equations; differential geometry
-</summary>
-<p>Given a chart <span class="math inline">\(x=(x_1, \cdots, x_n)\)</span> on a manifold <span class="math inline">\(M\)</span> (like fixing
+<p>How is this an implicit equation? Both sides
+of the equation consumes a vector field to output
+a scalar, and <span class="math inline">\(X_H\)</span> is implicitly defined to satisfy the equation.</p>
+<p>We next proceed to showing that this is, in fact,
+equivalent to Hamilton’s equations.</p>
+<div class="remark">
+<p><span id="unlabeled-div-32" class="remark"><em>Remark</em> (differential geometry basics). </span>Given a chart <span class="math inline">\(x=(x_1, \cdots, x_n)\)</span> on a manifold <span class="math inline">\(M\)</span> (like fixing
 a basis), a <strong>vector field</strong> <span class="math inline">\(X\)</span> can be understood as a <em>directional derivative</em>
 operation that consumes a scalar function <span class="math inline">\(f\)</span> and outputs <span class="math inline">\(X\, f\)</span> (read as
 <span class="math inline">\(X\)</span> acting on <span class="math inline">\(f\)</span>. The value of <span class="math inline">\((X\, f)(x)\)</span> encodes how much <span class="math inline">\(f\)</span>
@@ -384,8 +387,9 @@ We can similarly consider a basis representation for the differentials
 (which live on the cotangent bundle) with the notation <span class="math inline">\(d x_1, \cdots, dx_n\)</span>
 <span class="math display">\[
     df = \sum_{j=1}^N f_j dx_j, \quad dx_j\, \partial_{i} = \delta_{ij}
-\]</span>
-The last piece we need is <strong>the wedge product</strong>: assuming a basis
+\]</span></p>
+</div>
+<p>The last piece we need is <strong>the wedge product</strong>: assuming a basis
 <span class="math inline">\(B=\{\partial_{p}, \partial_{q}\}\)</span> (<span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> are univariables), the symplectic form
 <span class="math inline">\(\omega = dq \wedge dp\)</span> consumes two arguments in <span class="math inline">\(B\)</span> and outputs a number
 subject to the following rules, in addition to being linear in all its arguments:

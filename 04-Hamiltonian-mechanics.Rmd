@@ -209,9 +209,9 @@ _Proof:_ Take care that $\dot q, p$ are implicit functions of each other
     \end{align}
     the last equation holds by the Euler-Lagrange equations. 
 
+## Differential geometry perspective {-}
+
 <div style="color:green">
-:::{.remark}
-For those interested in differential geometry, 
 Hamilton's equations $\pd t \xi = \Gamma \, \nabla_\xi H$ 
 is the component representation of the following implicit 
 equation which defines the vector field $X_H$ 
@@ -219,14 +219,18 @@ _generating the time-translation of the system_:
 \[ 
     \omega(X_H, \, \cdot\, ) = dH
 \] 
-Here $\omega= dq \wedge dp$ is the _symplectic form_ 
-represented by $\Gamma$, and $dH$ is the differential of $H$. 
-:::
-</div>
+Here $\omega= dq \wedge dp = \sum_j dq_j\wedge dp_j$ 
+is the _symplectic form_ represented by $\Gamma$, and $dH$ 
+is the differential of $H$. 
+</div> 
+How is this an implicit equation? Both sides 
+of the equation consumes a vector field to output 
+a scalar, and $X_H$ is implicitly defined to satisfy the equation. 
 
-<details>
-<summary> optional material: relation between implicit 
-and coordinate equations; differential geometry </summary>
+We next proceed to showing that this is, in fact, 
+equivalent to Hamilton's equations. 
+
+:::{.remark name="differential geometry basics"}
 Given a chart $x=(x_1, \cdots, x_n)$ on a manifold $M$ (like fixing 
 a basis), a **vector field** $X$ can be understood as a _directional derivative_ 
 operation that consumes a scalar function $f$ and outputs $X\, f$ (read as 
@@ -256,6 +260,8 @@ We can similarly consider a basis representation for the differentials
 \[ 
     df = \sum_{j=1}^N f_j dx_j, \quad dx_j\, \pd i = \delta_{ij}
 \] 
+:::
+
 The last piece we need is **the wedge product**: assuming a basis 
 $B=\{\pd p, \pd q\}$ ($p$, $q$ are univariables), the symplectic form 
 $\omega = dq \wedge dp$ consumes two arguments in $B$ and outputs a number 
