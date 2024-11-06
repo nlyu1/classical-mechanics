@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Lagrange’s Equations | Physics 151 F24 Notes</title>
   <meta name="description" content="2 Lagrange’s Equations | Physics 151 F24 Notes" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Lagrange’s Equations | Physics 151 F24 Notes" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-23" />
+<meta name="date" content="2024-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -261,8 +261,7 @@ Now, <span class="math inline">\(J_{q\to x}\)</span> is independent of <span cla
 <p><span id="lem:absorbDer" class="lemma"><strong>Lemma 2.2  </strong></span><span class="math inline">\(J_{q\to \dot x} = d_t J_{q\to x}\)</span></p>
 </div>
 <p><em>Proof:</em>
-On the LHS, <span class="math inline">\(\partial_{q_i} \dot x_j = \partial_{q_i} (\dot q_k \partial_{q_k} x_j)
-= \dot q_k (\partial_{q_iq_k}^2 x_j)\)</span>.
+On the LHS, <span class="math inline">\(\partial_{q_i} \dot x_j = \partial_{q_i} (\dot q_k \partial_{q_k} x_j) = \dot q_k (\partial_{q_iq_k}^2 x_j)\)</span>.
 On the RHS, <span class="math inline">\((d_t J_{q\to x}(q_1, \cdots, q_n))_{ij} = (\partial_{q_i q_k}^2 x_j) \dot q_k\)</span>.</p>
 <p>The next two lemmas essentially restate the chain rule for <span class="math inline">\(q(x)\)</span>
 and <span class="math inline">\(\dot q(x, \dot x)\)</span>.</p>
@@ -597,8 +596,7 @@ rule and the condition that at <span class="math inline">\(\epsilon=0\)</span>, 
     &amp;= d_t(\eta \cdot \nabla_{\dot q})\mathcal L
 \end{align}\]</span>
 Where we recognized
-<span class="math inline">\(\eta \cdot \nabla_q - \eta \cdot (d_t\nabla_{\dot q})\mathcal L
-= -\eta \cdot \mathbb L = 0\)</span>. Substituting back into equation <a href="lagranges-equations.html#eq:separationEquation">(2.4)</a>
+<span class="math inline">\(\eta \cdot \nabla_q - \eta \cdot (d_t\nabla_{\dot q})\mathcal L = -\eta \cdot \mathbb L = 0\)</span>. Substituting back into equation <a href="lagranges-equations.html#eq:separationEquation">(2.4)</a>
 <span class="math display">\[
     \mathcal L(q + \epsilon \eta, \dot q + \epsilon \dot \eta)
     = \mathcal L(q, \dot q) + \epsilon \mathcal L(\eta, \dot \eta) +

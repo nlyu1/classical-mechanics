@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>4 Hamiltonian Mechanics | Physics 151 F24 Notes</title>
   <meta name="description" content="4 Hamiltonian Mechanics | Physics 151 F24 Notes" />
-  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
 
   <meta property="og:title" content="4 Hamiltonian Mechanics | Physics 151 F24 Notes" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Nicholas Lyu, Arthur Jaffe" />
 
 
-<meta name="date" content="2024-10-23" />
+<meta name="date" content="2024-11-06" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -298,7 +298,7 @@ where <span class="math inline">\(p = \nabla_{\dot q} \mathcal L\)</span> and <s
 is the implicit inverse of this equation.</p>
 </div>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-31" class="theorem"><strong>Theorem 4.1  (Hamilton's equations) </strong></span></p>
+<p><span id="thm:hamiltonEquations" class="theorem"><strong>Theorem 4.1  (Hamilton's equations) </strong></span></p>
 The following equations are equivalent to the Euler-Lagrange
 equations <a href="lagranges-equations.html#def:eulerLagrange">2.2</a> when the Lagrangian
 <span class="math inline">\(\mathcal L(q, \dot q, t)\)</span> is strictly convex in in <span class="math inline">\(\dot q\)</span>:
@@ -307,13 +307,14 @@ equations <a href="lagranges-equations.html#def:eulerLagrange">2.2</a> when the 
         = -\nabla_q H, \quad \dot q
         = \nabla_p H
     \end{aligned}\]</span>
-<p>Collecting <span class="math inline">\(\xi = q \oplus p\)</span> and write
-<span class="math inline">\(H(q, p, t) = H(\xi, t)\)</span>, we have the compact expression
-<span class="math display">\[
+<p>Collecting <span class="math inline">\(\xi = q \oplus p\)</span> i.e. <span class="math inline">\((\xi_1, \xi_2, \dots, \xi_{2n} = (q_1, p_1, q_2, \dots q_n, p_n)\)</span>
+and write <span class="math inline">\(H(q, p, t) = H(\xi, t)\)</span>, we obtain the compact expression
+<span class="math display" id="eq:omegaForm">\[
         \partial_{t} \xi = \Gamma\,  \nabla_\xi H, \quad \Gamma
         = \bigoplus \begin{pmatrix}
             0 &amp; 1 \\ -1 &amp; 0
         \end{pmatrix}
+        \tag{4.1}
     \]</span></p>
 </div>
 <p><em>Proof:</em> Take care that <span class="math inline">\(\dot q, p\)</span> are implicit functions of each other
@@ -359,7 +360,7 @@ a scalar, and <span class="math inline">\(X_H\)</span> is implicitly defined to 
 <p>We next proceed to showing that this is, in fact,
 equivalent to Hamilton’s equations.</p>
 <div class="remark">
-<p><span id="unlabeled-div-32" class="remark"><em>Remark</em> (differential geometry basics). </span>Given a chart <span class="math inline">\(x=(x_1, \cdots, x_n)\)</span> on a manifold <span class="math inline">\(M\)</span> (like fixing
+<p><span id="unlabeled-div-31" class="remark"><em>Remark</em> (differential geometry basics). </span>Given a chart <span class="math inline">\(x=(x_1, \cdots, x_n)\)</span> on a manifold <span class="math inline">\(M\)</span> (like fixing
 a basis), a <strong>vector field</strong> <span class="math inline">\(X\)</span> can be understood as a <em>directional derivative</em>
 operation that consumes a scalar function <span class="math inline">\(f\)</span> and outputs <span class="math inline">\(X\, f\)</span> (read as
 <span class="math inline">\(X\)</span> acting on <span class="math inline">\(f\)</span>. The value of <span class="math inline">\((X\, f)(x)\)</span> encodes how much <span class="math inline">\(f\)</span>
@@ -439,6 +440,73 @@ we have derived.
 </div>
 <div id="the-poisson-bracket" class="section level2 unnumbered hasAnchor">
 <h2>The Poisson bracket<a href="hamiltonian-mechanics.html#the-poisson-bracket" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>From now on, we work with a system with <span class="math inline">\(N\)</span> degrees of freedom
+with phase space of dimension <span class="math inline">\(2N\)</span>. Recall the definition
+of <span class="math inline">\(\xi\)</span> and <span class="math inline">\(\Gamma\)</span> in equation <a href="hamiltonian-mechanics.html#eq:omegaForm">(4.1)</a>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-32" class="definition"><strong>Definition 4.3  (Poisson bracket) </strong></span>The Poisson bracket between two smooth scalar functions is
+<span class="math display">\[
+    \left[{A}, {B}\right]_\xi = \nabla_q A \cdot \nabla_p B - \nabla_p A \cdot \nabla_q B
+    = (\nabla_\xi A)^T \Gamma (\nabla_\xi B)
+\]</span>
+We also use the derivative map <span class="math inline">\(D_A: B\mapsto \left[{A}, {B}\right]_\xi\)</span> to denote partial
+application of the Poisson bracket.</p>
+</div>
+<p>The quantum analogue of the following relation are the canonical
+commutation relations between <span class="math inline">\(\hat x, \hat p\)</span>. They are the true
+foundational axioms which specify a theory.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-33" class="definition"><strong>Definition 4.4  (fundamental Poisson brackets) </strong></span><span class="math inline">\(\left[{q_j}, {q_k}\right]_\xi = \left[{p_j}, {p_k}\right]_\xi = 0, \left[{q_j}, {p_k}\right]_\xi = \delta_{ij}\)</span>.
+Equivalently, these quantities are “probing” the entries of <span class="math inline">\(\Gamma\)</span>
+<span class="math display">\[
+    \left[{\xi_j}, {\xi_k}\right]_\xi = \Gamma_{jk}
+\]</span></p>
+</div>
+<p>Using the Poisson brackets, Hamilton’s equations (theorem <a href="hamiltonian-mechanics.html#thm:hamiltonEquations">4.1</a>)
+can be rewritten as
+<span class="math display">\[
+    \partial_{t} \xi = -D_H \xi \implies \xi(t) = e^{- t D_H} \xi(0).
+\]</span>
+Thus the time-evolution operator for time <span class="math inline">\(t\)</span>
+is <span class="math inline">\(\xi \mapsto e^{-tD_H}\)</span>. The following result shows the compatibility of the
+Jacobian map with the exponential.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-34" class="proposition"><strong>Proposition 4.5  (Jacobian of an exponential transform) </strong></span>Given an exponential map <span class="math inline">\(\xi \mapsto e^{-\lambda T}\xi\)</span>
+(here <span class="math inline">\(\xi\)</span> may be an operator instead of a constant matrix!),
+assuming convergence we obtain
+<span class="math inline">\(J_{\xi \mapsto e^{-\lambda T \xi}} = e^{-\lambda J_{\xi \to T\xi}}\)</span>.</p>
+</div>
+<p><em>Proof:</em> Note that <span class="math inline">\(J_{T+S} = J_T+J_S\)</span>, and <span class="math inline">\(J_{TS}=J_TJ_S\)</span>. Since
+the exponential is defined as a power series using addition and multiplication,
+we obtain <span class="math inline">\(J_{\exp(T)} = \exp(J_T)\)</span>.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-35" class="theorem"><strong>Theorem 4.2  (evolution of scalar under flow generated by another scalar) </strong></span>Given two scalar functions <span class="math inline">\(C, G\)</span> (observables)
+and <span class="math inline">\(\xi(\lambda)=e^{-\lambda D_G} \xi(0)\)</span>,
+the observable <span class="math inline">\(C\)</span> evolves according to
+<span class="math display">\[
+    d_\lambda C = \left[{C}, {G}\right]_\xi = -D_G C
+\]</span>
+To be extremely clear about dependences, we write
+<span class="math inline">\(d_\lambda C(\xi(\lambda)) = -D_G \big|_{\xi(\lambda)} C(\xi(\lambda))\)</span>,
+here <span class="math inline">\(C, G\)</span> are both implicit functions of <span class="math inline">\(\lambda\)</span> through <span class="math inline">\(\xi(\lambda)\)</span>.</p>
+</div>
+<p><em>Proof:</em> Indices which are repeated twice are summed over (contracted), expand to obtain
+<span class="math display">\[\begin{align}
+    d_\lambda C
+    &amp;= (\nabla_\xi C)\cdot d_\lambda \xi = -(\nabla_\xi C)\cdot D_G \xi  
+    = (\partial_{\xi_j} C) [\xi_j, G] \\
+    &amp;= (\partial_{\xi_j} C) \partial_{\xi_l} \xi_j \Gamma_{lk} (\partial_{\xi_k} G)
+    = (\partial_{\xi_j} C)\Gamma_{jk}(\partial_{\xi_k} G)
+    = \left[{C}, {G}\right]_\xi
+\end{align}\]</span></p>
+<div class="corollary">
+<p><span id="cor:unlabeled-div-36" class="corollary"><strong>Corollary 4.1  (scalars are conserved under their Hamiltonian flow) </strong></span>Given a scalar function <span class="math inline">\(G\)</span> on phase space, if <span class="math inline">\(\xi\)</span> evolves according to
+the flow generated by <span class="math inline">\(G\)</span> as below, then <span class="math inline">\(d_\lambda G(\xi(\lambda)) = 0\)</span>.
+<span class="math display">\[
+    d_\lambda \xi = - D_G \xi \iff \xi(\lambda) = e^{- \lambda D_G} \xi(0)
+\]</span></p>
+</div>
+<p><em>Proof:</em> By antisymmetry of the Poisson bracket, <span class="math inline">\(d_\lambda G = \left[{G}, {G}\right]_\xi = 0\)</span>.</p>
 </div>
 <div id="liouvilles-theorem" class="section level2 unnumbered hasAnchor">
 <h2>Liouville’s theorem<a href="hamiltonian-mechanics.html#liouvilles-theorem" class="anchor-section" aria-label="Anchor link to header"></a></h2>

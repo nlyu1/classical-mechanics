@@ -14,6 +14,7 @@ link-citations: true
 \usepackage{amsmath}
 \usepackage{bm}
 \newcommand{\pd}[1]{\partial_{#1}}
+\newcommand{\pb}[2]{\left[{#1}, {#2}\right]_\xi}
 
 \newcommand{\mbb}{\mathbb}
 \newcommand{\mbf}{\mathbf}
