@@ -24,7 +24,6 @@ Key takeaways:
     - Lorentz boosts are represented by Hermitian conjugation 
         $\mca H_2\cap \mrm{SL}(2)$ 
         (theorem \@ref(thm:hermitianBoost)). 
-7. 
 
 In this section, we work with $2\times 2$ complex matrices. 
 Some terminology for reference:

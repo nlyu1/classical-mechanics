@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Spacetime geometry | Physics 151 F24 Notes</title>
   <meta name="description" content="5 Spacetime geometry | Physics 151 F24 Notes" />
-  <meta name="generator" content="bookdown 0.41 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Spacetime geometry | Physics 151 F24 Notes" />
   <meta property="og:type" content="book" />
@@ -108,9 +108,7 @@
 </ul></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#hamiltons-equations"><i class="fa fa-check"></i>Hamilton’s equations</a></li>
 <li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#differential-geometry-perspective"><i class="fa fa-check"></i>Differential geometry perspective</a></li>
-<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#the-poisson-bracket"><i class="fa fa-check"></i>The Poisson bracket</a></li>
-<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#liouvilles-theorem"><i class="fa fa-check"></i>Liouville’s theorem</a></li>
-<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#optional-probability-on-phase-space"><i class="fa fa-check"></i>Optional: probability on phase space</a></li>
+<li class="chapter" data-level="" data-path="hamiltonian-mechanics.html"><a href="hamiltonian-mechanics.html#algebra-of-poisson-brackets"><i class="fa fa-check"></i>Algebra of Poisson brackets</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="spacetime-geometry.html"><a href="spacetime-geometry.html"><i class="fa fa-check"></i><b>5</b> Spacetime geometry</a>
 <ul>
@@ -163,7 +161,6 @@ are represented the conjugate action of <span class="math inline">\(\mathrm{SL}(
 <span class="math inline">\(\mathcal H_2\cap \mathrm{SL}(2)\)</span>
 (theorem <a href="spacetime-geometry.html#thm:hermitianBoost">5.3</a>).</li>
 </ul></li>
-<li></li>
 </ol>
 <p>In this section, we work with <span class="math inline">\(2\times 2\)</span> complex matrices.
 Some terminology for reference:</p>
@@ -196,7 +193,7 @@ in some orthonormal basis. In particular:</p>
 </ol>
 <p>An immediate corollary of the observation above is</p>
 <div class="proposition">
-<p><span id="prp:unlabeled-div-37" class="proposition"><strong>Proposition 5.1  </strong></span>Every unitary <span class="math inline">\(U=\exp(iH)\)</span> is the complex exponential of
+<p><span id="prp:unlabeled-div-40" class="proposition"><strong>Proposition 5.1  </strong></span>Every unitary <span class="math inline">\(U=\exp(iH)\)</span> is the complex exponential of
 some Hermitian matrix <span class="math inline">\(H\)</span>.</p>
 </div>
 <p>Proceeding, recall the Pauli matrices
@@ -284,7 +281,7 @@ points in spacetime, it is natural to ask the
 Equivalently,
 the map <span class="math inline">\(A:\mathbb R^4\to \mathbb R^4\)</span> which makes the diagram
 below commute is a linear operator.</p>
-<p><img src="images/LorentzRepresentation.png" style="display: block; margin: auto;" />
+<p><img src="images/LorentzRepresentation.png" width="370" style="display: block; margin: auto;" />
 In particular, the representation of <span class="math inline">\(\hat A\)</span> as a matrix in <span class="math inline">\(\mathbb R^4\)</span> is
 <span class="math display" id="eq:conjugationRepresentation">\[
         A_{ij} = (Ae_j)_i = \langle\hat A \sigma_j \hat A^\dagger, \sigma_i \rangle
@@ -315,7 +312,8 @@ Moreover, <span class="math inline">\(\hat A\)</span> induces the same transform
 so without of loss of generality we can take <span class="math inline">\(\det \hat A = 1\)</span>.</p>
 </div>
 <p><em>Proof</em>: Use proposition <a href="spacetime-geometry.html#prp:minkowskiMetricDet">5.3</a>:
-<span class="math inline">\(\|Ax\|^2_M = \det(\hat A\hat x\hat A^\dagger)  = \det \hat x (\det A)^2 = (\det A)^2 \|x\|^2_M\)</span></p>
+<span class="math inline">\(\|Ax\|^2_M = \det(\hat A\hat x\hat A^\dagger)
+    = \det \hat x (\det A)^2 = (\det A)^2 \|x\|^2_M\)</span></p>
 <p>Within <span class="math inline">\(\mathrm{SL}(2, \mathbb C)\)</span>, the special unitary group <span class="math inline">\(\mathrm{SU}(2)\)</span> consisting of <span class="math inline">\(2\times 2\)</span>
 unitaries and the unit-determinant Hermitians <span class="math inline">\(\mathcal H_2\cap \mathrm{SL}(2, \mathbb C)\)</span> are special:
 every <span class="math inline">\(A\in \mathrm{SL}(2, \mathbb C)\)</span> may be decomposed into a unique product of
