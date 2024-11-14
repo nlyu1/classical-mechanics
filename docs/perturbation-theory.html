@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Bibliography | Physics 151 F24 Notes</title>
-  <meta name="description" content="Bibliography | Physics 151 F24 Notes" />
+  <title>6 Perturbation Theory | Physics 151 F24 Notes</title>
+  <meta name="description" content="6 Perturbation Theory | Physics 151 F24 Notes" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Bibliography | Physics 151 F24 Notes" />
+  <meta property="og:title" content="6 Perturbation Theory | Physics 151 F24 Notes" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Bibliography | Physics 151 F24 Notes" />
+  <meta name="twitter:title" content="6 Perturbation Theory | Physics 151 F24 Notes" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="perturbation-theory.html"/>
-
+<link rel="prev" href="spacetime-geometry.html"/>
+<link rel="next" href="bibliography.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -139,17 +139,115 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="bibliography" class="section level1 unnumbered hasAnchor">
-<h1>Bibliography<a href="bibliography.html#bibliography" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="perturbation-theory" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Perturbation Theory<a href="perturbation-theory.html#perturbation-theory" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="dysons-formula" class="section level2 unnumbered hasAnchor">
+<h2>Dyson’s formula<a href="perturbation-theory.html#dysons-formula" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We wish for a series expansion of <span class="math inline">\(e^{t(H+V)}\)</span>.
+Consider the following expansion:
+<span class="math display">\[
+    f(s)\big|_{s=0}^{s=t}
+    = e^{s(H+V)} e^{(t-s)H} \big|_{s=0}^t
+    = e^{t(H+V)} - e^{tH} = \int_0^t e^{s(H+V)} (H+V-H) e^{(t-s)H}\, dx
+\]</span>
+Repeating this, we can consider
+<span class="math display">\[\begin{align}
+    e^{t(H+V)}
+    &amp;= e^{tH} + \int_0^t e^{s_1(H+V)} V e^{(t-s)H}\, ds_1 \\
+    &amp;= e^{tH} + \int_0^t e^{s_1H} V e^{(t-s_1)H}\, ds_1 +
+    \int_0^t ds_1 \int_0^{s_1} ds_2\,
+    e^{-s_1(H+V)}V e^{-(s-s_1)H} V e^{-sH} \\
+    &amp;= \sum_{n=0}^\infty
+    \int_{0\leq s_1\leq \dots \leq s_{n+1}=t}  
+    e^{-s_{n+1}H} V e^{-s_n H} V \dots e^{-s_2H} V e^{-s_1H}\, ds
+\end{align}\]</span>
+In mathematics, this was developed by Hille Phillips,
+and in physics by Dyson. Dyson proposed to write
+this in terms of time-ordered products.
+<span class="math display">\[
+    e^{-s_{n+1}H} V e^{-s_n H} V \dots e^{-s_2H} V e^{-s_1H}
+    = \dots \left(e^{(s_2-s_1)H} V e^{-(s_2-s_1)H}\right) \left(
+        e^{s_1 H} V e^{-s_1 H}
+    \right)
+\]</span>
+Define <span class="math inline">\(V(s) = e^{s H} V e^{-s H}\)</span>, we obtain
+<span class="math display">\[\begin{align}
+    e^{t(H+V)}
+    &amp;= \sum_n \int_{s_j\text{ simplex}} e^{s_{n+1}H}
+    V(s_n)\dots V(S_1) \\
+    &amp;= \sum_n \dfrac 1 {n!} \int ds\, e^{tH} \left[
+        V(s_1) \dots V(s_n)
+    \right]_+
+\end{align}\]</span>
+Here, the time-ordered product is defined as
+<span class="math display">\[\begin{align}
+    \left[
+        V(s_1)\dots V(s_n)
+    \right]_+ = V(s_{\pi_1})\dots V(s_{\pi_n}) \text{
+    such that } s_\pi \text{ is ordered.}
+\end{align}\]</span>
+With this convention, we obtain Dyson’s formula
+<span class="math display">\[\begin{align}
+    e^{t(H+V)}
+    &amp;= \sum_{n=0}^\infty \dfrac 1 {n!}
+    \int e^{tH} \left[
+        V(s_1)\dots V(s_n)
+    \right]_+ \, ds =
+    \exp \left[tH + \left(
+        \int_0^t V(s)\, dx
+    \right)_+\right]
+\end{align}\]</span></p>
+</div>
+<div id="example-fourier-transform" class="section level2 unnumbered hasAnchor">
+<h2>Example: Fourier transform<a href="perturbation-theory.html#example-fourier-transform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Consider the Fourier transform
+<span class="math inline">\(f(x) = \frac 1 {\sqrt{2\pi}} e^{ipx} \tilde f(p)\, dp\)</span>.
+<span class="math display">\[\begin{align}
+    \dfrac 1 2 \left(-i \partial_{x}\right)^2f(x)
+    &amp;= \dfrac 1 {\sqrt{2\pi}} \int e^{ipx} \dfrac{p^2}{2} \tilde f(p)\, dp
+\end{align}\]</span>
+Note that <span class="math inline">\(p^2/2\)</span> is the kinetic energy.
+Exponentiating this solution, we claim that
+<span class="math inline">\(e^{t \partial_{x}^2/2}\)</span> acts on a function as multiplying its
+Fourier transform by <span class="math inline">\(e^{-t p^2/2}\)</span>, which is equivalent to
+convolving <span class="math inline">\(f\)</span> with a Gaussian:
+<span class="math display">\[\begin{align}
+    e^{t\partial_{x}^2/2} f(x)
+    = \dfrac 1 {\sqrt{2\pi}} \int e^{ipx + t\frac{p^2}{2}} \tilde f(p)\, dp
+    = \dfrac 1 {\sqrt{2\pi t}} \int e^{-\frac{(x-y)^2}{2t}}f(y)\, dy
+\end{align}\]</span>
+This is the famous solution to the heat diffusion
+equation <span class="math inline">\(\dot f = \dfrac 1 2 \partial_{x}^2 f\)</span>.
+The diffusion kernel <span class="math inline">\(\mathcal K_t f = e^{t\partial_{x}^2/2} f =\)</span>
+Gaussian convolution of <span class="math inline">\(f\)</span>. This is a one-parameter
+exponential group.
+Consider the decomposition <span class="math inline">\(\mathcal K_t = K_{t/n}^n\)</span>.
+<span class="math display">\[\begin{align}
+    \mathcal K_t(x_0, x_n)
+    &amp;= \int \mathcal K_{t/n}(x_0, x_1)\dots \mathcal K_{t/n}(x_{n-1, x_n})\, dx_1 \dots dx_{n-1} \\
+    &amp;= \dfrac 1 {(2\pi t)^{n/2}} \int dx_1\dots dx_{n-1} \exp \left[
+        -\sum \dfrac{(x_j-x_{j+1})^2}{2t/n}
+    \right]
+\end{align}\]</span>
+If we replace <span class="math inline">\(t\mapsto it\)</span>, this resembles the path integral from quantum theory.
+Treating the integrand as finite approximations, we can write
+<span class="math display">\[\begin{align}
+    \lim_{n\to \infty} \mathcal K_t(x_0, x_n)
+    \approx \dfrac 1 {\sqrt{(2\pi t)^n}}  
+    \int \exp \left(
+        \dfrac 1 2 \int v^2\, dt
+    \right)
+\end{align}\]</span></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="perturbation-theory.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="spacetime-geometry.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bibliography.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

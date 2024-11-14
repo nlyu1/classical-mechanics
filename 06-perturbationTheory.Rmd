@@ -1,0 +1,98 @@
+# Perturbation Theory 
+
+## Dyson's formula {-}
+We wish for a series expansion of $e^{t(H+V)}$. 
+Consider the following expansion: 
+\[ 
+    f(s)\big|_{s=0}^{s=t} 
+    = e^{s(H+V)} e^{(t-s)H} \big|_{s=0}^t 
+    = e^{t(H+V)} - e^{tH} = \int_0^t e^{s(H+V)} (H+V-H) e^{(t-s)H}\, dx 
+\] 
+Repeating this, we can consider 
+\begin{align}
+    e^{t(H+V)} 
+    &= e^{tH} + \int_0^t e^{s_1(H+V)} V e^{(t-s)H}\, ds_1 \\ 
+    &= e^{tH} + \int_0^t e^{s_1H} V e^{(t-s_1)H}\, ds_1 + 
+    \int_0^t ds_1 \int_0^{s_1} ds_2\, 
+    e^{-s_1(H+V)}V e^{-(s-s_1)H} V e^{-sH} \\ 
+    &= \sum_{n=0}^\infty 
+    \int_{0\leq s_1\leq \dots \leq s_{n+1}=t}  
+    e^{-s_{n+1}H} V e^{-s_n H} V \dots e^{-s_2H} V e^{-s_1H}\, ds 
+\end{align}
+In mathematics, this was developed by Hille Phillips, 
+and in physics by Dyson. Dyson proposed to write 
+this in terms of time-ordered products. 
+\[ 
+    e^{-s_{n+1}H} V e^{-s_n H} V \dots e^{-s_2H} V e^{-s_1H}
+    = \dots \left(e^{(s_2-s_1)H} V e^{-(s_2-s_1)H}\right) \left(
+        e^{s_1 H} V e^{-s_1 H}
+    \right)
+\] 
+Define $V(s) = e^{s H} V e^{-s H}$, we obtain 
+\begin{align}
+    e^{t(H+V)} 
+    &= \sum_n \int_{s_j\text{ simplex}} e^{s_{n+1}H} 
+    V(s_n)\dots V(S_1) \\ 
+    &= \sum_n \df 1 {n!} \int ds\, e^{tH} \left[
+        V(s_1) \dots V(s_n)
+    \right]_+
+\end{align}
+Here, the time-ordered product is defined as 
+\begin{align}
+    \left[
+        V(s_1)\dots V(s_n)
+    \right]_+ = V(s_{\pi_1})\dots V(s_{\pi_n}) \text{ 
+    such that } s_\pi \text{ is ordered.}
+\end{align}
+With this convention, we obtain Dyson's formula 
+\begin{align}
+    e^{t(H+V)} 
+    &= \sum_{n=0}^\infty \df 1 {n!} 
+    \int e^{tH} \left[
+        V(s_1)\dots V(s_n)
+    \right]_+ \, ds = 
+    \exp \left[tH + \left(
+        \int_0^t V(s)\, dx 
+    \right)_+\right]
+\end{align}
+
+## Example: Fourier transform {-}
+
+Consider the Fourier transform 
+$f(x) = \frac 1 {\sqrt{2\pi}} e^{ipx} \tilde f(p)\, dp$. 
+\begin{align}
+    \df 1 2 \left(-i \pd x\right)^2f(x) 
+    &= \df 1 {\sqrt{2\pi}} \int e^{ipx} \df{p^2}{2} \tilde f(p)\, dp 
+\end{align}
+Note that $p^2/2$ is the kinetic energy. 
+Exponentiating this solution, we claim that 
+$e^{t \pd x^2/2}$ acts on a function as multiplying its 
+Fourier transform by $e^{-t p^2/2}$, which is equivalent to 
+convolving $f$ with a Gaussian: 
+\begin{align}
+    e^{t\pd x^2/2} f(x)
+    = \df 1 {\sqrt{2\pi}} \int e^{ipx + t\frac{p^2}{2}} \tilde f(p)\, dp 
+    = \df 1 {\sqrt{2\pi t}} \int e^{-\frac{(x-y)^2}{2t}}f(y)\, dy 
+\end{align}
+This is the famous solution to the heat diffusion 
+equation $\dot f = \df 1 2 \pd x^2 f$. 
+The diffusion kernel $\mca K_t f = e^{t\pd x^2/2} f =$ 
+Gaussian convolution of $f$. This is a one-parameter 
+exponential group. 
+Consider the decomposition $\mca K_t = K_{t/n}^n$. 
+\begin{align}
+    \mca K_t(x_0, x_n) 
+    &= \int \mca K_{t/n}(x_0, x_1)\dots \mca K_{t/n}(x_{n-1, x_n})\, dx_1 \dots dx_{n-1} \\ 
+    &= \df 1 {(2\pi t)^{n/2}} \int dx_1\dots dx_{n-1} \exp \left[
+        -\sum \df{(x_j-x_{j+1})^2}{2t/n}
+    \right]
+\end{align}
+If we replace $t\mapsto it$, this resembles the path integral from quantum theory. 
+Treating the integrand as finite approximations, we can write 
+\begin{align}
+    \lim_{n\to \infty} \mca K_t(x_0, x_n) 
+    \approx \df 1 {\sqrt{(2\pi t)^n}}  
+    \int \exp \left(
+        \df 1 2 \int v^2\, dt 
+    \right)
+\end{align}
