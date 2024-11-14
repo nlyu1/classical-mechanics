@@ -56,7 +56,7 @@ With this convention, we obtain Dyson's formula
     \right)_+\right]
 \end{align}
 
-## Example: Fourier transform {-}
+## Wick rotation {-}
 
 Consider the Fourier transform 
 $f(x) = \frac 1 {\sqrt{2\pi}} e^{ipx} \tilde f(p)\, dp$. 
